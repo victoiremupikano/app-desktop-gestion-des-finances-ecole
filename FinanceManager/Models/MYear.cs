@@ -216,7 +216,7 @@ namespace FinanceManager.Models
         }
         public void session()
         {
-            Mtb_year obj = new Mtb_year();
+            MYear obj = new MYear();
             obj.getActif();
             if (obj.callback["type"] == "success")
             {
