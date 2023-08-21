@@ -25,122 +25,51 @@ namespace FinanceManager.Apps
             { "dteStart", "dteStart" },
             { "dteEnd", "dteEnd" },
             { "status", "status" },
+            { "fk_user", "fk_user" },
             { "row_added","row_add"},
             { "row_updated","row_update"}
         };
         public Dictionary<string, string> tb_student = new Dictionary<string, string> {
             { "id", "id" },
-            { "design", "design" },
-            { "fk_user", "fk_user" },
-            { "fk_profile", "fk_profile" },
-            { "row_added","row_add"},
-            { "row_updated","row_update"}
-        };
-        public Dictionary<string, string> under_menu = new Dictionary<string, string> {
-            { "id", "id" },
-            { "design", "design" },
-            { "fk", "fk_menu" },
-            { "fk_user", "fk_user" },
-            { "fk_profile", "fk_profile" },
-            { "row_added","row_add"},
-            { "row_updated","row_update"}
-        };
-        public Dictionary<string, string> arrival = new Dictionary<string, string> {
-            { "id", "id" },
-            { "design", "design" },
-            { "descript", "descript" },
-            { "status", "status" },
-            { "fk_user", "fk_user" },
-            { "fk_profile", "fk_profile" },
-            { "row_added","row_add"},
-            { "row_updated","row_update"}
-        };
-
-        public Dictionary<string, string> category = new Dictionary<string, string> {
-            { "id", "id" },
-            { "design", "design" },
-            { "descript", "descript" },
-            { "fk_user", "fk_user" },
-            { "fk_profile", "fk_profile" },
-            { "row_added","row_add"},
-            { "row_updated","row_update"}
-        };
-
-        public Dictionary<string, string> invoice = new Dictionary<string, string> {
-            { "id", "id" },
             { "names", "names" },
-            { "tel", "telephone" },
-            { "dte", "dte" },
-            { "fk_user", "fk_user" },
-            { "fk_profile", "fk_profile" },
-            { "row_added","row_add"},
-            { "row_updated","row_update"}
-        };
-
-        public Dictionary<string, string> product = new Dictionary<string, string> {
-            { "id", "id" },
-            { "ref", "reference" },
-            { "dci", "dci" },
-            { "pv", "pv" },
-            { "cdte", "cdte" },
-            { "stkAlert", "stk" },
-            { "isperiscope", "isperiscope" },
-            { "fk", "fk_category" },
-            { "fk_user", "fk_user" },
-            { "fk_profile", "fk_profile" },
-            { "row_added","row_add"},
-            { "row_updated","row_update"}
-        };
-
-        public Dictionary<string, string> profile = new Dictionary<string, string> {
-            { "id", "id" },
-            { "names", "names" },
-            { "nrc", "nrc" },
-            { "identNat", "identNat" },
+            { "kind", "kind" },
+            { "birthday", "birthday" },
+            { "children_father", "children_father" },
+            { "children_mather", "children_mather" },
+            { "religin", "religin" },
             { "adress", "adress" },
-            { "tel", "telephone" },
-            { "logo", "logo" },
+            { "tel", "tel" },
+            { "fk_year", "fk_year" },
             { "fk_user", "fk_user" },
             { "row_added","row_add"},
             { "row_updated","row_update"}
         };
-
-        public Dictionary<string, string> user = new Dictionary<string, string> {
-            { "id", "id" },
-            { "login", "login" },
-            { "password", "password" },
-            { "type", "type" },
+        public Dictionary<string, string> tb_trimestry = new Dictionary<string, string> {
+            { "id", "trimestry_id" },
+            { "wording", "wording" },
+            { "mt_to_pay", "mt_to_pay" },
+            { "fk_year", "fk_year" },
+            { "fk_user", "fk_user" },
             { "row_added","row_add"},
             { "row_updated","row_update"}
         };
-
-        public Dictionary<string, string> flux = new Dictionary<string, string> {
-            { "id", "id" },
-            { "num", "number" },
-            { "dte", "dte" },
-            { "qtg", "qtg" },
-            { "qtd", "qtd" },
-            { "pvt", "pvt" },
-            { "fk1", "fk_arrival" },
-            { "fk2", "fk_product" },
-            { "fk3", "fk_custommer" },
-            { "oper", "operation" },
+        public Dictionary<string, string> tb_account = new Dictionary<string, string> {
+            { "id", "account_id" },
+            { "wording", "wording" },
+            { "fk1", "fk_student" },
+            { "fk2", "fk_trimestry" },
+            { "fk_year", "fk_year" },
             { "fk_user", "fk_user" },
-            { "fk_profile", "fk_profile" },
-            { "dte_start_isperiscope", "dte_start_isperiscope" },
-            { "dte_end_isperiscope", "dte_end_isperiscope" },
-            { "row_added","row_add" },
-            { "row_updated","row_update" }
+            { "row_added","row_add"},
+            { "row_updated","row_update"}
         };
-
-        public Dictionary<string, string> payment = new Dictionary<string, string> {
-            { "id", "id" },
-            { "dte", "dte" },
-            { "mt", "mt" },
-            { "oper", "operator" },
-            { "num", "number" },
+        public Dictionary<string, string> tb_payment = new Dictionary<string, string> {
+            { "id", "payment_id" },
+            { "wording", "wording" },
+            { "my_payed", "my_payed" },
+            { "fk1", "fk_account" },
+            { "fk_year", "fk_year" },
             { "fk_user", "fk_user" },
-            { "fk_profile", "fk_profile" },
             { "row_added","row_add"},
             { "row_updated","row_update"}
         };

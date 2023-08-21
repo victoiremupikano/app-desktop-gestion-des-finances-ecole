@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Apps\Query.cs" />
+    <Compile Include="Apps\Schema.cs" />
     <Compile Include="frmConnexion.cs">
       <SubType>Form</SubType>
     </Compile>
