@@ -40,10 +40,10 @@ namespace FinanceManager
         {
             //rendre les panels de bas invisible au demarrage
 
-            this.pnlBasFactures.Visible = false;
-            this.pnlBasProduits.Visible = false;
+            this.pnlBasPayment.Visible = false;
+            this.pnlBasAccount.Visible = false;
             this.pnlBasRapports.Visible = false;
-            this.pnlBasArrivage.Visible = false;
+            this.pnlBasStudent.Visible = false;
             //demarrage de l'App en plein ecran
             this.WindowState = FormWindowState.Maximized;
 
@@ -108,6 +108,7 @@ namespace FinanceManager
             Application.Exit();
         }
 
+        #region called-FRM
         private void call_user()
         {
             try
@@ -121,10 +122,10 @@ namespace FinanceManager
 
                     //rendre les panels de bas invisible au clic btn sauf pour le btn
         
-                    this.pnlBasFactures.Visible = false;
-                    this.pnlBasProduits.Visible = false;
+                    this.pnlBasPayment.Visible = false;
+                    this.pnlBasAccount.Visible = false;
                     this.pnlBasRapports.Visible = false;
-                    this.pnlBasArrivage.Visible = false;
+                    this.pnlBasStudent.Visible = false;
                 }
                 else
                 {
@@ -133,23 +134,23 @@ namespace FinanceManager
             }
             catch { }
         }
-        private void call_mollecules()
+        private void call_year()
         {
             try
             {
-                if (!Views.Product.frmMolecules.IsFormOpen(typeof(Views.Product.frmMolecules)))
+                if (!Views.frmYear.IsFormOpen(typeof(Views.frmYear)))
                 {
                     //code pur repatrier la frm concerner dans le pnlCentral
-                    callMultiForm(new Views.Product.frmMolecules());
+                    callMultiForm(new Views.frmYear());
                     //...
                     //.. votre code concernant le boutton
 
                     //rendre les panels de bas invisible au clic btn sauf pour le btn
         
-                    this.pnlBasFactures.Visible = false;
-                    this.pnlBasProduits.Visible = true;
+                    this.pnlBasPayment.Visible = false;
+                    this.pnlBasAccount.Visible = false;
                     this.pnlBasRapports.Visible = false;
-                    this.pnlBasArrivage.Visible = false;
+                    this.pnlBasStudent.Visible = false;
                 }
                 else
                 {
@@ -158,103 +159,43 @@ namespace FinanceManager
             }
             catch { }
         }
-        private void call_arrival()
-        {
-            try
-            {
-                if (!Views.Arrival.frmYear.IsFormOpen(typeof(Views.Arrival.frmYear)))
-                {
-                    //code pur repatrier la frm concerner dans le pnlCentral
-                    callMultiForm(new Views.Arrival.frmYear());
-                    //...
-                    //.. votre code concernant le boutton
+        #endregion
 
-                    //rendre les panels de bas invisible au clic btn sauf pour le btn
-        
-                    this.pnlBasFactures.Visible = false;
-                    this.pnlBasProduits.Visible = false;
-                    this.pnlBasRapports.Visible = false;
-                    this.pnlBasArrivage.Visible = true;
-                }
-                else
-                {
-                    //on ne fait rien
-                }
-            }
-            catch { }
-        }
-        private void call_custommer()
+        #region menu-haut
+        private void CopteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (!Views.Custommer.frmInvoice.IsFormOpen(typeof(Views.Custommer.frmInvoice)))
-                {
-                    //code pur repatrier la frm concerner dans le pnlCentral
-                    callMultiForm(new Views.Custommer.frmInvoice());
-
-                    //rendre les panels de bas invisible au clic btn sauf pour le btn
-        
-                    this.pnlBasFactures.Visible = false;
-                    this.pnlBasProduits.Visible = false;
-                    this.pnlBasRapports.Visible = false;
-                    this.pnlBasArrivage.Visible = false;
-                }
-                else
-                {
-                    //on ne fait rien
-                }
-            }
-            catch { }
+            call_user();
         }
-        private void call_flux()
+
+        private void annéeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (!Views.Flux.frmFlux.IsFormOpen(typeof(Views.Flux.frmFlux)))
-                {
-                    //code pur repatrier la frm concerner dans le pnlCentral
-                    callMultiForm(new Views.Flux.frmFlux());
-                    //...
-                    //.. votre code concernant le boutton
-
-                    //rendre les panels de bas invisible au clic btn sauf pour le btn
-        
-                    this.pnlBasFactures.Visible = true;
-                    this.pnlBasProduits.Visible = false;
-                    this.pnlBasRapports.Visible = false;
-                    this.pnlBasArrivage.Visible = false;
-                }
-                else
-                {
-                    //on ne fait rien
-                }
-            }
-            catch { }
+            call_year();
         }
-        private void call_reports()
+
+        private void trimestreToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (!Views.Reports.frmReport_UI.IsFormOpen(typeof(Views.Reports.frmReport_UI)))
-                {
-                    //code pur repatrier la frm concerner dans le pnlCentral
-                    callMultiForm(new Views.Reports.frmReport_UI());
-                    //...
-                    //.. votre code concernant le boutton
 
-                    //rendre les panels de bas invisible au clic btn sauf pour le btn
-        
-                    this.pnlBasFactures.Visible = false;
-                    this.pnlBasProduits.Visible = false;
-                    this.pnlBasRapports.Visible = true;
-                    this.pnlBasArrivage.Visible = false;
-                }
-                else
-                {
-                    //on ne fait rien
-                }
-            }
-            catch { }
         }
+
+        private void arrivageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void moleculesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void facturesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void rapportsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+        #endregion
     }
 }

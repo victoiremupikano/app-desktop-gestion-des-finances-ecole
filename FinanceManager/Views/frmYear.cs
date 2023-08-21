@@ -11,7 +11,7 @@ using FinanceManager.Properties;
 using MySql.Data.MySqlClient;
 
 
-namespace FinanceManager.Views.frmYear
+namespace FinanceManager.Views
 {
     public partial class frmYear : Form
     {

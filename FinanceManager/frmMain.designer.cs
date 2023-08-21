@@ -32,20 +32,22 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.pnlHautMenu = new System.Windows.Forms.Panel();
             this.lblTimeCurrent = new System.Windows.Forms.Label();
-            this.pnlBasArrivage = new System.Windows.Forms.Panel();
-            this.btnArrivage = new System.Windows.Forms.Button();
+            this.pnlBasStudent = new System.Windows.Forms.Panel();
+            this.btnStudent = new System.Windows.Forms.Button();
             this.btbOtherOption = new System.Windows.Forms.Button();
-            this.pnlBasFactures = new System.Windows.Forms.Panel();
+            this.pnlBasPayment = new System.Windows.Forms.Panel();
             this.pnlBasRapports = new System.Windows.Forms.Panel();
-            this.pnlBasProduits = new System.Windows.Forms.Panel();
-            this.btnFactures = new System.Windows.Forms.Button();
+            this.pnlBasAccount = new System.Windows.Forms.Panel();
+            this.btnPayment = new System.Windows.Forms.Button();
             this.btnRapport = new System.Windows.Forms.Button();
-            this.btnMolecules = new System.Windows.Forms.Button();
+            this.btnAccount = new System.Windows.Forms.Button();
             this.pnlCentraleFrmmain = new System.Windows.Forms.Panel();
             this.btnConfig = new System.Windows.Forms.Button();
             this.btnMessager = new System.Windows.Forms.Button();
             this.outilsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CopteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.annéeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.trimestreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMenuPrincipale = new System.Windows.Forms.MenuStrip();
             this.arrivageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.moleculesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,8 +57,6 @@
             this.EtiquetteUserCon = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsplUserConnected = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStripEtatSoft = new System.Windows.Forms.StatusStrip();
-            this.annéeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.trimestreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlHautMenu.SuspendLayout();
             this.pnlCentraleFrmmain.SuspendLayout();
             this.menuStripMenuPrincipale.SuspendLayout();
@@ -66,15 +66,15 @@
             // pnlHautMenu
             // 
             this.pnlHautMenu.Controls.Add(this.lblTimeCurrent);
-            this.pnlHautMenu.Controls.Add(this.pnlBasArrivage);
-            this.pnlHautMenu.Controls.Add(this.btnArrivage);
+            this.pnlHautMenu.Controls.Add(this.pnlBasStudent);
+            this.pnlHautMenu.Controls.Add(this.btnStudent);
             this.pnlHautMenu.Controls.Add(this.btbOtherOption);
-            this.pnlHautMenu.Controls.Add(this.pnlBasFactures);
+            this.pnlHautMenu.Controls.Add(this.pnlBasPayment);
             this.pnlHautMenu.Controls.Add(this.pnlBasRapports);
-            this.pnlHautMenu.Controls.Add(this.pnlBasProduits);
-            this.pnlHautMenu.Controls.Add(this.btnFactures);
+            this.pnlHautMenu.Controls.Add(this.pnlBasAccount);
+            this.pnlHautMenu.Controls.Add(this.btnPayment);
             this.pnlHautMenu.Controls.Add(this.btnRapport);
-            this.pnlHautMenu.Controls.Add(this.btnMolecules);
+            this.pnlHautMenu.Controls.Add(this.btnAccount);
             this.pnlHautMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHautMenu.Location = new System.Drawing.Point(0, 24);
             this.pnlHautMenu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -93,31 +93,30 @@
             this.lblTimeCurrent.Text = "TIME";
             this.lblTimeCurrent.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // pnlBasArrivage
+            // pnlBasStudent
             // 
-            this.pnlBasArrivage.BackColor = System.Drawing.Color.Black;
-            this.pnlBasArrivage.Location = new System.Drawing.Point(9, 63);
-            this.pnlBasArrivage.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pnlBasArrivage.Name = "pnlBasArrivage";
-            this.pnlBasArrivage.Size = new System.Drawing.Size(147, 6);
-            this.pnlBasArrivage.TabIndex = 10;
+            this.pnlBasStudent.BackColor = System.Drawing.Color.Black;
+            this.pnlBasStudent.Location = new System.Drawing.Point(8, 63);
+            this.pnlBasStudent.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pnlBasStudent.Name = "pnlBasStudent";
+            this.pnlBasStudent.Size = new System.Drawing.Size(147, 6);
+            this.pnlBasStudent.TabIndex = 10;
             // 
-            // btnArrivage
+            // btnStudent
             // 
-            this.btnArrivage.FlatAppearance.BorderSize = 0;
-            this.btnArrivage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnArrivage.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnArrivage.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnArrivage.Image = global::FinanceManager.Properties.Resources.arrow_expand_alt3;
-            this.btnArrivage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnArrivage.Location = new System.Drawing.Point(3, 4);
-            this.btnArrivage.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnArrivage.Name = "btnArrivage";
-            this.btnArrivage.Size = new System.Drawing.Size(151, 57);
-            this.btnArrivage.TabIndex = 0;
-            this.btnArrivage.Text = "           Apprenants   ";
-            this.btnArrivage.UseVisualStyleBackColor = true;
-            this.btnArrivage.Click += new System.EventHandler(this.btnArrivage_Click);
+            this.btnStudent.FlatAppearance.BorderSize = 0;
+            this.btnStudent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStudent.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStudent.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnStudent.Image = global::FinanceManager.Properties.Resources.arrow_expand_alt3;
+            this.btnStudent.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnStudent.Location = new System.Drawing.Point(3, 4);
+            this.btnStudent.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnStudent.Name = "btnStudent";
+            this.btnStudent.Size = new System.Drawing.Size(151, 57);
+            this.btnStudent.TabIndex = 0;
+            this.btnStudent.Text = "           Apprenants   ";
+            this.btnStudent.UseVisualStyleBackColor = true;
             // 
             // btbOtherOption
             // 
@@ -135,14 +134,14 @@
             this.btbOtherOption.TabIndex = 8;
             this.btbOtherOption.UseVisualStyleBackColor = true;
             // 
-            // pnlBasFactures
+            // pnlBasPayment
             // 
-            this.pnlBasFactures.BackColor = System.Drawing.Color.Black;
-            this.pnlBasFactures.Location = new System.Drawing.Point(303, 63);
-            this.pnlBasFactures.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pnlBasFactures.Name = "pnlBasFactures";
-            this.pnlBasFactures.Size = new System.Drawing.Size(137, 6);
-            this.pnlBasFactures.TabIndex = 3;
+            this.pnlBasPayment.BackColor = System.Drawing.Color.Black;
+            this.pnlBasPayment.Location = new System.Drawing.Point(303, 63);
+            this.pnlBasPayment.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pnlBasPayment.Name = "pnlBasPayment";
+            this.pnlBasPayment.Size = new System.Drawing.Size(137, 6);
+            this.pnlBasPayment.TabIndex = 3;
             // 
             // pnlBasRapports
             // 
@@ -153,31 +152,30 @@
             this.pnlBasRapports.Size = new System.Drawing.Size(137, 6);
             this.pnlBasRapports.TabIndex = 3;
             // 
-            // pnlBasProduits
+            // pnlBasAccount
             // 
-            this.pnlBasProduits.BackColor = System.Drawing.Color.Black;
-            this.pnlBasProduits.Location = new System.Drawing.Point(160, 63);
-            this.pnlBasProduits.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pnlBasProduits.Name = "pnlBasProduits";
-            this.pnlBasProduits.Size = new System.Drawing.Size(137, 6);
-            this.pnlBasProduits.TabIndex = 3;
+            this.pnlBasAccount.BackColor = System.Drawing.Color.Black;
+            this.pnlBasAccount.Location = new System.Drawing.Point(160, 63);
+            this.pnlBasAccount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pnlBasAccount.Name = "pnlBasAccount";
+            this.pnlBasAccount.Size = new System.Drawing.Size(137, 6);
+            this.pnlBasAccount.TabIndex = 3;
             // 
-            // btnFactures
+            // btnPayment
             // 
-            this.btnFactures.FlatAppearance.BorderSize = 0;
-            this.btnFactures.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFactures.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFactures.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnFactures.Image = global::FinanceManager.Properties.Resources.icon_id_alt;
-            this.btnFactures.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFactures.Location = new System.Drawing.Point(303, 4);
-            this.btnFactures.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnFactures.Name = "btnFactures";
-            this.btnFactures.Size = new System.Drawing.Size(137, 57);
-            this.btnFactures.TabIndex = 2;
-            this.btnFactures.Text = "        Payements";
-            this.btnFactures.UseVisualStyleBackColor = true;
-            this.btnFactures.Click += new System.EventHandler(this.btnFactures_Click);
+            this.btnPayment.FlatAppearance.BorderSize = 0;
+            this.btnPayment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPayment.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPayment.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnPayment.Image = global::FinanceManager.Properties.Resources.icon_id_alt;
+            this.btnPayment.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPayment.Location = new System.Drawing.Point(303, 4);
+            this.btnPayment.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnPayment.Name = "btnPayment";
+            this.btnPayment.Size = new System.Drawing.Size(137, 57);
+            this.btnPayment.TabIndex = 2;
+            this.btnPayment.Text = "        Payements";
+            this.btnPayment.UseVisualStyleBackColor = true;
             // 
             // btnRapport
             // 
@@ -194,24 +192,22 @@
             this.btnRapport.TabIndex = 4;
             this.btnRapport.Text = "            Rapport";
             this.btnRapport.UseVisualStyleBackColor = true;
-            this.btnRapport.Click += new System.EventHandler(this.btnRapport_Click);
             // 
-            // btnMolecules
+            // btnAccount
             // 
-            this.btnMolecules.FlatAppearance.BorderSize = 0;
-            this.btnMolecules.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMolecules.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMolecules.ForeColor = System.Drawing.SystemColors.Control;
-            this.btnMolecules.Image = global::FinanceManager.Properties.Resources.icon_toolbox;
-            this.btnMolecules.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMolecules.Location = new System.Drawing.Point(160, 4);
-            this.btnMolecules.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnMolecules.Name = "btnMolecules";
-            this.btnMolecules.Size = new System.Drawing.Size(137, 57);
-            this.btnMolecules.TabIndex = 1;
-            this.btnMolecules.Text = "        Comptes";
-            this.btnMolecules.UseVisualStyleBackColor = true;
-            this.btnMolecules.Click += new System.EventHandler(this.btnMolecules_Click);
+            this.btnAccount.FlatAppearance.BorderSize = 0;
+            this.btnAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAccount.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAccount.ForeColor = System.Drawing.SystemColors.Control;
+            this.btnAccount.Image = global::FinanceManager.Properties.Resources.icon_toolbox;
+            this.btnAccount.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAccount.Location = new System.Drawing.Point(160, 4);
+            this.btnAccount.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnAccount.Name = "btnAccount";
+            this.btnAccount.Size = new System.Drawing.Size(137, 57);
+            this.btnAccount.TabIndex = 1;
+            this.btnAccount.Text = "        Comptes";
+            this.btnAccount.UseVisualStyleBackColor = true;
             // 
             // pnlCentraleFrmmain
             // 
@@ -276,7 +272,6 @@
             this.outilsToolStripMenuItem.Name = "outilsToolStripMenuItem";
             this.outilsToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
             this.outilsToolStripMenuItem.Text = "Paramètres";
-            this.outilsToolStripMenuItem.Click += new System.EventHandler(this.outilsToolStripMenuItem_Click);
             // 
             // CopteToolStripMenuItem
             // 
@@ -284,6 +279,20 @@
             this.CopteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.CopteToolStripMenuItem.Text = "Utilisateur";
             this.CopteToolStripMenuItem.Click += new System.EventHandler(this.CopteToolStripMenuItem_Click);
+            // 
+            // annéeToolStripMenuItem
+            // 
+            this.annéeToolStripMenuItem.Name = "annéeToolStripMenuItem";
+            this.annéeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.annéeToolStripMenuItem.Text = "Année";
+            this.annéeToolStripMenuItem.Click += new System.EventHandler(this.annéeToolStripMenuItem_Click);
+            // 
+            // trimestreToolStripMenuItem
+            // 
+            this.trimestreToolStripMenuItem.Name = "trimestreToolStripMenuItem";
+            this.trimestreToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.trimestreToolStripMenuItem.Text = "Trimestre";
+            this.trimestreToolStripMenuItem.Click += new System.EventHandler(this.trimestreToolStripMenuItem_Click);
             // 
             // menuStripMenuPrincipale
             // 
@@ -363,18 +372,6 @@
             this.statusStripEtatSoft.TabIndex = 79;
             this.statusStripEtatSoft.Text = "statusStripInfoLogicielle";
             // 
-            // annéeToolStripMenuItem
-            // 
-            this.annéeToolStripMenuItem.Name = "annéeToolStripMenuItem";
-            this.annéeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.annéeToolStripMenuItem.Text = "Année";
-            // 
-            // trimestreToolStripMenuItem
-            // 
-            this.trimestreToolStripMenuItem.Name = "trimestreToolStripMenuItem";
-            this.trimestreToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.trimestreToolStripMenuItem.Text = "Trimestre";
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -408,24 +405,24 @@
         #endregion
 
         private System.Windows.Forms.Panel pnlHautMenu;
-        private System.Windows.Forms.Button btnFactures;
+        private System.Windows.Forms.Button btnPayment;
         private System.Windows.Forms.Button btnRapport;
-        private System.Windows.Forms.Button btnMolecules;
+        private System.Windows.Forms.Button btnAccount;
         private System.Windows.Forms.Panel pnlCentraleFrmmain;
         private System.Windows.Forms.ToolStripMenuItem outilsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem CopteToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStripMenuPrincipale;
         private System.Windows.Forms.ToolStripMenuItem rapportsToolStripMenuItem;
         private System.Windows.Forms.Button btbOtherOption;
-        private System.Windows.Forms.Button btnArrivage;
+        private System.Windows.Forms.Button btnStudent;
         internal System.Windows.Forms.Label lblTimeCurrent;
         private System.Windows.Forms.Timer timerPrincipal;
         private System.Windows.Forms.Button btnConfig;
         private System.Windows.Forms.Button btnMessager;
-        public System.Windows.Forms.Panel pnlBasFactures;
+        public System.Windows.Forms.Panel pnlBasPayment;
         public System.Windows.Forms.Panel pnlBasRapports;
-        public System.Windows.Forms.Panel pnlBasProduits;
-        public System.Windows.Forms.Panel pnlBasArrivage;
+        public System.Windows.Forms.Panel pnlBasAccount;
+        public System.Windows.Forms.Panel pnlBasStudent;
         private System.Windows.Forms.ToolStripStatusLabel EtiquetteUserCon;
         private System.Windows.Forms.ToolStripStatusLabel tsplUserConnected;
         private System.Windows.Forms.StatusStrip statusStripEtatSoft;

@@ -1,4 +1,4 @@
-﻿using Commercial_Management.Properties;
+﻿using FinanceManager.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
-namespace Commercial_Management.SettingsApp
+namespace FinanceManager.SettingsApps
 {
     public partial class frmSettings : Form
     {

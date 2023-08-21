@@ -1,4 +1,4 @@
-﻿namespace FinanceManager.Views.frmYear
+﻿namespace FinanceManager.Views
 {
     partial class frmYear
     {
@@ -279,6 +279,7 @@
             // 
             // dteEnd
             // 
+            this.dteEnd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dteEnd.Location = new System.Drawing.Point(611, 38);
             this.dteEnd.Name = "dteEnd";
             this.dteEnd.Size = new System.Drawing.Size(291, 27);
@@ -286,6 +287,7 @@
             // 
             // lblAu
             // 
+            this.lblAu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblAu.AutoSize = true;
             this.lblAu.Location = new System.Drawing.Point(573, 39);
             this.lblAu.Name = "lblAu";
@@ -295,6 +297,7 @@
             // 
             // dteStart
             // 
+            this.dteStart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.dteStart.Location = new System.Drawing.Point(276, 38);
             this.dteStart.Name = "dteStart";
             this.dteStart.Size = new System.Drawing.Size(291, 27);
@@ -302,6 +305,7 @@
             // 
             // lblDu
             // 
+            this.lblDu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblDu.AutoSize = true;
             this.lblDu.Location = new System.Drawing.Point(238, 39);
             this.lblDu.Name = "lblDu";
