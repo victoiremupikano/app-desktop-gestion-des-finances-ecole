@@ -371,5 +371,10 @@ namespace FinanceManager.Views
         }
 
         #endregion
+
+        private void txtResearch_TextChanged(object sender, EventArgs e)
+        {
+            search(txtResearch.Text);
+        }
     }
 }

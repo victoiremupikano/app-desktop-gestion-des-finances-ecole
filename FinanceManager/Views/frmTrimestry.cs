@@ -73,6 +73,7 @@ namespace FinanceManager.Views
         private void EthiquetteArr()
         {
             txtWording.Text = "Nom du trimestre";
+            txtMt_to_pay.Text = "0";
         }
 
         /// <summary>
@@ -343,5 +344,27 @@ namespace FinanceManager.Views
         }
 
         #endregion
+
+        private void txtMt_to_pay_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == ','))
+            {
+                e.Handled = true;
+            }
+            TextBox txtDecimal = sender as TextBox;
+            try
+            {
+                if (e.KeyChar == ',' && txtDecimal.Text.Contains(","))
+                {
+                    e.Handled = true;
+                }
+            }
+            catch { }
+        }
+
+        private void txtResearchAdd_TextChanged(object sender, EventArgs e)
+        {
+            search(txtResearch.Text);
+        }
     }
 }

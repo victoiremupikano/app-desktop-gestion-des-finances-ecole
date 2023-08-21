@@ -42,7 +42,7 @@
             this.notifyIconArrivage = new System.Windows.Forms.NotifyIcon(this.components);
             this.tabPageA1 = new System.Windows.Forms.TabPage();
             this.picReseachAdd = new System.Windows.Forms.PictureBox();
-            this.txtResearchAdd = new System.Windows.Forms.TextBox();
+            this.txtResearch = new System.Windows.Forms.TextBox();
             this.btnToModify = new System.Windows.Forms.Button();
             this.btnSaved = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
@@ -103,7 +103,7 @@
             this.tabPageA1.BackColor = System.Drawing.SystemColors.Control;
             this.tabPageA1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.tabPageA1.Controls.Add(this.picReseachAdd);
-            this.tabPageA1.Controls.Add(this.txtResearchAdd);
+            this.tabPageA1.Controls.Add(this.txtResearch);
             this.tabPageA1.Controls.Add(this.btnToModify);
             this.tabPageA1.Controls.Add(this.btnSaved);
             this.tabPageA1.Controls.Add(this.btnNew);
@@ -131,18 +131,19 @@
             this.picReseachAdd.TabIndex = 241;
             this.picReseachAdd.TabStop = false;
             // 
-            // txtResearchAdd
+            // txtResearch
             // 
-            this.txtResearchAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtResearchAdd.BackColor = System.Drawing.SystemColors.Control;
-            this.txtResearchAdd.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtResearchAdd.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.txtResearchAdd.Location = new System.Drawing.Point(50, 319);
-            this.txtResearchAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtResearchAdd.Name = "txtResearchAdd";
-            this.txtResearchAdd.Size = new System.Drawing.Size(315, 20);
-            this.txtResearchAdd.TabIndex = 240;
-            this.toolTipBtnCtrl.SetToolTip(this.txtResearchAdd, "Recherche");
+            this.txtResearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtResearch.BackColor = System.Drawing.SystemColors.Control;
+            this.txtResearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtResearch.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.txtResearch.Location = new System.Drawing.Point(50, 319);
+            this.txtResearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtResearch.Name = "txtResearch";
+            this.txtResearch.Size = new System.Drawing.Size(315, 20);
+            this.txtResearch.TabIndex = 240;
+            this.toolTipBtnCtrl.SetToolTip(this.txtResearch, "Recherche");
+            this.txtResearch.TextChanged += new System.EventHandler(this.txtResearchAdd_TextChanged);
             // 
             // btnToModify
             // 
@@ -447,6 +448,7 @@
             this.txtMt_to_pay.Size = new System.Drawing.Size(271, 31);
             this.txtMt_to_pay.TabIndex = 136;
             this.toolTipBtnCtrl.SetToolTip(this.txtMt_to_pay, "Désignation de l\'arrivage");
+            this.txtMt_to_pay.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMt_to_pay_KeyPress);
             // 
             // Column1
             // 
@@ -542,7 +544,7 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStripAddArrival;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemModify;
         private System.Windows.Forms.PictureBox picReseachAdd;
-        private System.Windows.Forms.TextBox txtResearchAdd;
+        private System.Windows.Forms.TextBox txtResearch;
         private System.Windows.Forms.ToolTip toolTipBtnCtrl;
         private System.Windows.Forms.Label lblMt_to_pay;
         private System.Windows.Forms.TextBox txtMt_to_pay;

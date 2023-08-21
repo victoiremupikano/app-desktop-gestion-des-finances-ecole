@@ -42,7 +42,7 @@
             this.txtRechercheArriv = new System.Windows.Forms.TextBox();
             this.notifyIconArrivage = new System.Windows.Forms.NotifyIcon(this.components);
             this.tabPageA1 = new System.Windows.Forms.TabPage();
-            this.txtResearchAdd = new System.Windows.Forms.TextBox();
+            this.txtResearch = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.gpArrivGen = new System.Windows.Forms.GroupBox();
             this.dteEnd = new System.Windows.Forms.DateTimePicker();
@@ -109,7 +109,7 @@
             this.tabPageA1.BackColor = System.Drawing.SystemColors.Control;
             this.tabPageA1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.tabPageA1.Controls.Add(this.picReseachAdd);
-            this.tabPageA1.Controls.Add(this.txtResearchAdd);
+            this.tabPageA1.Controls.Add(this.txtResearch);
             this.tabPageA1.Controls.Add(this.btnToModify);
             this.tabPageA1.Controls.Add(this.btnSaved);
             this.tabPageA1.Controls.Add(this.btnNew);
@@ -124,18 +124,19 @@
             this.tabPageA1.TabIndex = 0;
             this.tabPageA1.Text = " Année     ";
             // 
-            // txtResearchAdd
+            // txtResearch
             // 
-            this.txtResearchAdd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtResearchAdd.BackColor = System.Drawing.SystemColors.Control;
-            this.txtResearchAdd.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtResearchAdd.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.txtResearchAdd.Location = new System.Drawing.Point(50, 319);
-            this.txtResearchAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtResearchAdd.Name = "txtResearchAdd";
-            this.txtResearchAdd.Size = new System.Drawing.Size(315, 20);
-            this.txtResearchAdd.TabIndex = 240;
-            this.toolTipBtnCtrl.SetToolTip(this.txtResearchAdd, "Recherche");
+            this.txtResearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtResearch.BackColor = System.Drawing.SystemColors.Control;
+            this.txtResearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtResearch.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.txtResearch.Location = new System.Drawing.Point(50, 319);
+            this.txtResearch.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtResearch.Name = "txtResearch";
+            this.txtResearch.Size = new System.Drawing.Size(315, 20);
+            this.txtResearch.TabIndex = 240;
+            this.toolTipBtnCtrl.SetToolTip(this.txtResearch, "Recherche");
+            this.txtResearch.TextChanged += new System.EventHandler(this.txtResearch_TextChanged);
             // 
             // tableLayoutPanel2
             // 
@@ -592,7 +593,7 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStripAddArrival;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemModify;
         private System.Windows.Forms.PictureBox picReseachAdd;
-        private System.Windows.Forms.TextBox txtResearchAdd;
+        private System.Windows.Forms.TextBox txtResearch;
         private System.Windows.Forms.ToolTip toolTipBtnCtrl;
         private System.Windows.Forms.DateTimePicker dteEnd;
         private System.Windows.Forms.Label lblAu;
