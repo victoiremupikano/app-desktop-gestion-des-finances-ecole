@@ -100,6 +100,12 @@
     <Compile Include="SettingsApp\frmSettings.designer.cs">
       <DependentUpon>frmSettings.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\frmStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmStudent.designer.cs">
+      <DependentUpon>frmStudent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\frmTrimestry.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +145,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SettingsApp\frmSettings.resx">
       <DependentUpon>frmSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmStudent.resx">
+      <DependentUpon>frmStudent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\frmTrimestry.resx">
       <DependentUpon>frmTrimestry.cs</DependentUpon>
