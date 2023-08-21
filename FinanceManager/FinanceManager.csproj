@@ -58,12 +58,6 @@
     <Compile Include="Controllers\CTrimestry.cs" />
     <Compile Include="Controllers\CYear.cs" />
     <Compile Include="Controllers\CUser.cs" />
-    <Compile Include="frmConnexion.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmConnexion.Designer.cs">
-      <DependentUpon>frmConnexion.cs</DependentUpon>
-    </Compile>
     <Compile Include="LoginLogout.cs" />
     <Compile Include="Models\CUser.cs" />
     <Compile Include="Models\MUsers.cs" />
