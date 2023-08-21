@@ -39,10 +39,14 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gpEncadrListViewUser = new System.Windows.Forms.GroupBox();
             this.dgvData = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.gpUsers = new System.Windows.Forms.GroupBox();
             this.txtUserName = new System.Windows.Forms.TextBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
+            this.toolTipBtnCtrl = new System.Windows.Forms.ToolTip(this.components);
             this.pictureBoxMinimize = new System.Windows.Forms.PictureBox();
             this.pictureBoxClose = new System.Windows.Forms.PictureBox();
             this.btnToModify = new System.Windows.Forms.Button();
@@ -50,10 +54,6 @@
             this.btnNew = new System.Windows.Forms.Button();
             this.btnLoard = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.toolTipBtnCtrl = new System.Windows.Forms.ToolTip(this.components);
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gpEncadrListViewUser.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
@@ -73,7 +73,7 @@
             this.gpEncadrListViewUser.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gpEncadrListViewUser.Name = "gpEncadrListViewUser";
             this.gpEncadrListViewUser.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.gpEncadrListViewUser.Size = new System.Drawing.Size(896, 257);
+            this.gpEncadrListViewUser.Size = new System.Drawing.Size(888, 254);
             this.gpEncadrListViewUser.TabIndex = 44;
             this.gpEncadrListViewUser.TabStop = false;
             // 
@@ -86,6 +86,7 @@
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             this.dgvData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvData.BorderStyle = System.Windows.Forms.BorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
@@ -129,10 +130,48 @@
             dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             this.dgvData.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvData.Size = new System.Drawing.Size(890, 234);
+            this.dgvData.Size = new System.Drawing.Size(882, 231);
             this.dgvData.TabIndex = 12;
             this.dgvData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellClick);
             this.dgvData.SelectionChanged += new System.EventHandler(this.dgvData_SelectionChanged);
+            // 
+            // Column1
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.PowderBlue;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Column1.FillWeight = 150F;
+            this.Column1.HeaderText = "ID";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Visible = false;
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.PowderBlue;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            this.Column2.DefaultCellStyle = dataGridViewCellStyle4;
+            this.Column2.HeaderText = "Utilisateur";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            this.Column3.DefaultCellStyle = dataGridViewCellStyle5;
+            this.Column3.HeaderText = "Mot de passe";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
             // tableLayoutPanel2
             // 
@@ -147,7 +186,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(915, 358);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(907, 355);
             this.tableLayoutPanel2.TabIndex = 39;
             // 
             // gpUsers
@@ -163,7 +202,7 @@
             this.gpUsers.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gpUsers.Name = "gpUsers";
             this.gpUsers.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.gpUsers.Size = new System.Drawing.Size(909, 350);
+            this.gpUsers.Size = new System.Drawing.Size(901, 347);
             this.gpUsers.TabIndex = 1;
             this.gpUsers.TabStop = false;
             this.gpUsers.Text = "Ajouter un utilisateur";
@@ -192,7 +231,7 @@
             this.txtPassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtPassword.MaxLength = 15;
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(596, 27);
+            this.txtPassword.Size = new System.Drawing.Size(588, 27);
             this.txtPassword.TabIndex = 136;
             this.toolTipBtnCtrl.SetToolTip(this.txtPassword, "Mot de passe");
             this.txtPassword.UseSystemPasswordChar = true;
@@ -201,7 +240,7 @@
             // 
             this.pictureBoxMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBoxMinimize.Image = global::FinanceManager.Properties.Resources.icon_minus_06;
-            this.pictureBoxMinimize.Location = new System.Drawing.Point(869, 5);
+            this.pictureBoxMinimize.Location = new System.Drawing.Point(861, 5);
             this.pictureBoxMinimize.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBoxMinimize.Name = "pictureBoxMinimize";
             this.pictureBoxMinimize.Size = new System.Drawing.Size(22, 23);
@@ -215,7 +254,7 @@
             // 
             this.pictureBoxClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBoxClose.Image = global::FinanceManager.Properties.Resources.icon_close;
-            this.pictureBoxClose.Location = new System.Drawing.Point(899, 5);
+            this.pictureBoxClose.Location = new System.Drawing.Point(891, 5);
             this.pictureBoxClose.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBoxClose.Name = "pictureBoxClose";
             this.pictureBoxClose.Size = new System.Drawing.Size(22, 23);
@@ -234,7 +273,7 @@
             this.btnToModify.ForeColor = System.Drawing.Color.Black;
             this.btnToModify.Image = global::FinanceManager.Properties.Resources.Edit_16x16;
             this.btnToModify.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnToModify.Location = new System.Drawing.Point(719, 405);
+            this.btnToModify.Location = new System.Drawing.Point(711, 402);
             this.btnToModify.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnToModify.Name = "btnToModify";
             this.btnToModify.Size = new System.Drawing.Size(84, 32);
@@ -252,7 +291,7 @@
             this.btnSaved.ForeColor = System.Drawing.Color.Black;
             this.btnSaved.Image = global::FinanceManager.Properties.Resources.Add_16x16;
             this.btnSaved.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSaved.Location = new System.Drawing.Point(536, 405);
+            this.btnSaved.Location = new System.Drawing.Point(528, 402);
             this.btnSaved.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSaved.Name = "btnSaved";
             this.btnSaved.Size = new System.Drawing.Size(81, 32);
@@ -270,7 +309,7 @@
             this.btnNew.ForeColor = System.Drawing.Color.Black;
             this.btnNew.Image = global::FinanceManager.Properties.Resources.New_16x16;
             this.btnNew.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNew.Location = new System.Drawing.Point(623, 405);
+            this.btnNew.Location = new System.Drawing.Point(615, 402);
             this.btnNew.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(90, 32);
@@ -288,7 +327,7 @@
             this.btnLoard.ForeColor = System.Drawing.Color.Black;
             this.btnLoard.Image = global::FinanceManager.Properties.Resources.Download_16x16;
             this.btnLoard.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnLoard.Location = new System.Drawing.Point(442, 405);
+            this.btnLoard.Location = new System.Drawing.Point(434, 402);
             this.btnLoard.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnLoard.Name = "btnLoard";
             this.btnLoard.Size = new System.Drawing.Size(88, 32);
@@ -306,7 +345,7 @@
             this.btnDelete.ForeColor = System.Drawing.Color.Black;
             this.btnDelete.Image = global::FinanceManager.Properties.Resources.Delete_16x16;
             this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnDelete.Location = new System.Drawing.Point(809, 405);
+            this.btnDelete.Location = new System.Drawing.Point(801, 402);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(100, 32);
@@ -315,50 +354,11 @@
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.btnSupp_Click);
             // 
-            // Column1
-            // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.PowderBlue;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            this.Column1.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Column1.FillWeight = 150F;
-            this.Column1.HeaderText = "ID";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Visible = false;
-            this.Column1.Width = 150;
-            // 
-            // Column2
-            // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.PowderBlue;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            this.Column2.DefaultCellStyle = dataGridViewCellStyle4;
-            this.Column2.HeaderText = "Utilisateur";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            this.Column3.DefaultCellStyle = dataGridViewCellStyle5;
-            this.Column3.HeaderText = "Mot de passe";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
             // frmUsers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(925, 443);
+            this.ClientSize = new System.Drawing.Size(917, 440);
             this.Controls.Add(this.pictureBoxMinimize);
             this.Controls.Add(this.pictureBoxClose);
             this.Controls.Add(this.tableLayoutPanel2);

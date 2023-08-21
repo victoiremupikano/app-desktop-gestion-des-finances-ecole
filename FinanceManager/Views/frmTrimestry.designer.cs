@@ -304,7 +304,7 @@
             this.gpEncadrdgvArriv.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gpEncadrdgvArriv.Name = "gpEncadrdgvArriv";
             this.gpEncadrdgvArriv.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.gpEncadrdgvArriv.Size = new System.Drawing.Size(879, 210);
+            this.gpEncadrdgvArriv.Size = new System.Drawing.Size(873, 210);
             this.gpEncadrdgvArriv.TabIndex = 44;
             this.gpEncadrdgvArriv.TabStop = false;
             // 
@@ -362,7 +362,7 @@
             dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             this.dgvData.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvData.Size = new System.Drawing.Size(873, 182);
+            this.dgvData.Size = new System.Drawing.Size(867, 182);
             this.dgvData.TabIndex = 13;
             this.dgvData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataAddArrival_CellClick);
             this.dgvData.SelectionChanged += new System.EventHandler(this.dgvDataAddArrival_SelectionChanged);
@@ -444,7 +444,7 @@
             this.txtMt_to_pay.Location = new System.Drawing.Point(612, 36);
             this.txtMt_to_pay.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtMt_to_pay.Name = "txtMt_to_pay";
-            this.txtMt_to_pay.Size = new System.Drawing.Size(258, 31);
+            this.txtMt_to_pay.Size = new System.Drawing.Size(271, 31);
             this.txtMt_to_pay.TabIndex = 136;
             this.toolTipBtnCtrl.SetToolTip(this.txtMt_to_pay, "Désignation de l\'arrivage");
             // 
