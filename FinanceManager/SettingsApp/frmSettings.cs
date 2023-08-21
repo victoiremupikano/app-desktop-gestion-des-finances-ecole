@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
-namespace FinanceManager.SettingsApps
+namespace FinanceManager.SettingsApp
 {
     public partial class frmSettings : Form
     {

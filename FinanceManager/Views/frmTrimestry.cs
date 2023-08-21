@@ -13,14 +13,14 @@ using MySql.Data.MySqlClient;
 
 namespace FinanceManager.Views
 {
-    public partial class frmYear : Form
+    public partial class frmTrimestry : Form
     {
         public string id;
 
         Services.convertDate valid = new Services.convertDate();
         Services.DtgvServices dgv = new Services.DtgvServices();
 
-        public frmYear()
+        public frmTrimestry()
         {
             InitializeComponent();
         }
@@ -59,23 +59,24 @@ namespace FinanceManager.Views
         }
 
         //
-        //Debut du code pour la year .;
+        //Debut du code pour la trimestry .;
         //
-        #region year
+        #region trimestry
 
         private void viderLesTxt()
         {
             txtWording.Text = string.Empty;
+            txtMt_to_pay.Text = "0";
         }
 
         //fonction nous aidant ethiquetter
         private void EthiquetteArr()
         {
-            txtWording.Text = "Nom de l'année";
+            txtWording.Text = "Nom du trimestre";
         }
 
         /// <summary>
-        /// Controle year
+        /// Controle trimestry
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -88,23 +89,14 @@ namespace FinanceManager.Views
 
                 id = dgvData.CurrentRow.Cells[0].Value.ToString();
                 txtWording.Text = dgvData.CurrentRow.Cells[1].Value.ToString();
-                dteStart.Value = DateTime.Parse(dgvData.CurrentRow.Cells[2].Value.ToString());
-                dteEnd.Value = DateTime.Parse(dgvData.CurrentRow.Cells[3].Value.ToString());
-                if (dgvData.CurrentRow.Cells[4].Value.ToString() == "True")
-                {
-                    chkStatus.Checked = true;
-                }
-                else
-                {
-                    chkStatus.Checked = false;
-                }
+                txtMt_to_pay.Text = dgvData.CurrentRow.Cells[2].Value.ToString().Replace(".", ",");
             }
         }
 
         private void modify()
         {
             Services.MsgFRM msg = new Services.MsgFRM();
-            if (string.IsNullOrEmpty(id) || string.IsNullOrEmpty(txtWording.Text) || txtWording.Text == "Nom de l'année")
+            if (string.IsNullOrEmpty(id) || string.IsNullOrEmpty(txtMt_to_pay.Text) || string.IsNullOrEmpty(txtWording.Text) || txtWording.Text == "Nom du trimestre")
             {
                 msg.getAttention("Erreur, veiller remplir tous les champs ?");
             }
@@ -112,26 +104,16 @@ namespace FinanceManager.Views
             {
                 if (msg.getDialog("Etes-vous sûr de vouloir modifier ?"))
                 {
-                    string status = string.Empty;
-                    if (chkStatus.Checked)
-                    {
-                        status = "True";
-                    }
-                    else
-                    {
-                        status = "False";
-                    }
                     Dictionary<string, string> fields = new Dictionary<string, string>{
                         {"id", id},
                         {"wording", txtWording.Text},
-                        {"dteStart", valid.mysqlDateFormat(dteStart)},
-                        {"dteEnd", valid.mysqlDateFormat(dteEnd)},
-                        {"status", status},
+                        {"mt_to_pay", txtMt_to_pay.Text.Replace(",", ".")},
+                        {"fk_year", Services.Session.ExerciselSession["id"]},
                         {"fk_user", Services.Session.UserSession["id"]},
                     };
 
                     //on passe les donnees dans le controllers
-                    Controllers.CYear obj = new Controllers.CYear(fields);
+                    Controllers.CTrimestry obj = new Controllers.CTrimestry(fields);
                     obj.update(obj);
 
                     if (obj.message["type"] == "success")
@@ -164,7 +146,7 @@ namespace FinanceManager.Views
                     {"id", id},
                 };
                 //on passe les donnees dans le controllers
-                Controllers.CYear obj = new Controllers.CYear(fields);
+                Controllers.CTrimestry obj = new Controllers.CTrimestry(fields);
                 obj.delete(obj);
 
                 if (obj.message["type"] == "success")
@@ -190,31 +172,21 @@ namespace FinanceManager.Views
         private void save()
         {
             Services.MsgFRM msg = new Services.MsgFRM();
-            if (string.IsNullOrEmpty(txtWording.Text) || txtWording.Text == "Nom de l'année")
+            if (string.IsNullOrEmpty(txtWording.Text) || string.IsNullOrEmpty(txtMt_to_pay.Text) || txtWording.Text == "Nom du trimestre")
             {
                 msg.getAttention("Erreur, veiller remplir tous les champs ?");
             }
             else
             {
-                string status = string.Empty;
-                if (chkStatus.Checked)
-                {
-                    status = "True";
-                }
-                else
-                {
-                    status = "False";
-                }
                 Dictionary<string, string> fields = new Dictionary<string, string>{
-                        {"wording", txtWording.Text},
-                        {"dteStart", valid.mysqlDateFormat(dteStart)},
-                        {"dteEnd", valid.mysqlDateFormat(dteEnd)},
-                        {"status", status},
-                        {"fk_user", Services.Session.UserSession["id"]},
-                    };
+                    {"wording", txtWording.Text},
+                    {"mt_to_pay", txtMt_to_pay.Text.Replace(",", ".")},
+                    {"fk_year", Services.Session.ExerciselSession["id"]},
+                    {"fk_user", Services.Session.UserSession["id"]},
+                };
 
                 //on passe les donnees dans le controllers
-                Controllers.CYear obj = new Controllers.CYear(fields);
+                Controllers.CTrimestry obj = new Controllers.CTrimestry(fields);
                 obj.add(obj);
 
                 if (obj.message["type"] == "success")
@@ -239,7 +211,7 @@ namespace FinanceManager.Views
 
         private void loard()
         {
-            Models.MYear obj = new Models.MYear();
+            Models.MTrimestry obj = new Models.MTrimestry();
             obj.get();
             if (obj.callback["type"] == "success")
             {
@@ -249,7 +221,7 @@ namespace FinanceManager.Views
 
                 while (dr.Read())
                 {
-                    dgvData.Rows.Add(dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString());
+                    dgvData.Rows.Add(dr[0].ToString(), dr[1].ToString(), dr[2].ToString());
                 }
                 Apps.Query.DR.Close();
             }
@@ -270,7 +242,7 @@ namespace FinanceManager.Views
 
         private void search(string param)
         {
-            Models.MYear obj = new Models.MYear();
+            Models.MTrimestry obj = new Models.MTrimestry();
             obj.reseach(param);
             if (obj.callback["type"] == "success")
             {
@@ -280,7 +252,7 @@ namespace FinanceManager.Views
 
                 while (dr.Read())
                 {
-                    dgvData.Rows.Add(dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString());
+                    dgvData.Rows.Add(dr[0].ToString(), dr[1].ToString(), dr[2].ToString());
                 }
                 Apps.Query.DR.Close();
             }
@@ -298,10 +270,10 @@ namespace FinanceManager.Views
 
         #endregion
 
-        #region eventsClickyear
+        #region eventsClicktrimestry
         private void txtdesignArriv_Click(object sender, EventArgs e)
         {
-            if (txtWording.Text == "Nom de l'année")
+            if (txtWording.Text == "Nom du trimestre")
             {
                 txtWording.Text = string.Empty;
             }
@@ -311,7 +283,7 @@ namespace FinanceManager.Views
         {
             if (txtWording.Text == string.Empty)
             {
-                txtWording.Text = "Nom de l'année";
+                txtWording.Text = "Nom du trimestre";
             }
         }
 
@@ -325,7 +297,7 @@ namespace FinanceManager.Views
 
         #endregion
 
-        #region btnCtrl year
+        #region btnCtrl trimestry
         private void btnCharger_Click(object sender, EventArgs e)
         {
             loard();

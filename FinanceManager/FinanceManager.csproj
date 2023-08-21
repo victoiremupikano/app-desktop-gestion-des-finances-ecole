@@ -100,6 +100,12 @@
     <Compile Include="SettingsApp\frmSettings.designer.cs">
       <DependentUpon>frmSettings.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\frmTrimestry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmTrimestry.designer.cs">
+      <DependentUpon>frmTrimestry.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\frmYear.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +139,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SettingsApp\frmSettings.resx">
       <DependentUpon>frmSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmTrimestry.resx">
+      <DependentUpon>frmTrimestry.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\frmYear.resx">
       <DependentUpon>frmYear.cs</DependentUpon>

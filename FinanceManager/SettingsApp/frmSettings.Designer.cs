@@ -1,4 +1,4 @@
-﻿namespace FinanceManager.SettingsApps
+﻿namespace FinanceManager.SettingsApp
 {
     partial class frmSettings
     {
