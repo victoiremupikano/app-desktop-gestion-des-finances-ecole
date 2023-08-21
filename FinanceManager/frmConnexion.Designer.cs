@@ -1,6 +1,6 @@
 ﻿namespace FinanceManager
 {
-    partial class Form1
+    partial class frmConnexion
     {
         /// <summary>
         /// Required designer variable.

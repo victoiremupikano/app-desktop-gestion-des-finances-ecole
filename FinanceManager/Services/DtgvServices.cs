@@ -1,4 +1,4 @@
-﻿using Commercial_Management.Properties;
+﻿using FinanceManager.Properties;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Commercial_Management.Services
+namespace FinanceManager.Services
 {
     class DtgvServices
     {

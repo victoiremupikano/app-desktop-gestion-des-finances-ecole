@@ -5,7 +5,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Commercial_Management.Services
+namespace FinanceManager.Services
 {
     class Crypto
     {

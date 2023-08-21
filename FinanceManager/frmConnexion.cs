@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace FinanceManager
 {
-    public partial class Form1 : Form
+    public partial class frmConnexion : Form
     {
-        public Form1()
+        public frmConnexion()
         {
             InitializeComponent();
         }
