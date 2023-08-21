@@ -94,5 +94,17 @@ namespace FinanceManager.Properties {
                 this["mode"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string closingState {
+            get {
+                return ((string)(this["closingState"]));
+            }
+            set {
+                this["closingState"] = value;
+            }
+        }
     }
 }

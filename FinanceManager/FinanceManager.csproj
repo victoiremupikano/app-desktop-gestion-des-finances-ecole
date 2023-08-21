@@ -58,6 +58,18 @@
     <Compile Include="Controllers\CTrimestry.cs" />
     <Compile Include="Controllers\CYear.cs" />
     <Compile Include="Controllers\CUser.cs" />
+    <Compile Include="frmConnecting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConnecting.designer.cs">
+      <DependentUpon>frmConnecting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoginLogout.cs" />
     <Compile Include="Models\CUser.cs" />
     <Compile Include="Models\MUsers.cs" />
@@ -83,6 +95,12 @@
     <Compile Include="SettingsApps\frmSettings.designer.cs">
       <DependentUpon>frmSettings.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmConnecting.resx">
+      <DependentUpon>frmConnecting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

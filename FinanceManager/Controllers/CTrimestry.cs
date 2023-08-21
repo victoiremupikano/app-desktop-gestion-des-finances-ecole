@@ -5,31 +5,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Commercial_Management.Controllers
+namespace FinanceManager.Controllers
 {
-    class CUser
+    class CTrimestry
     {
         Dictionary<string, string> fields { get; set; }
         public Dictionary<string, string> message;
-        public CUser(Dictionary<string, string> fields)
+        public CTrimestry(Dictionary<string, string> fields)
         {
             this.fields = fields;
         }
-        public void add(CUser args)
+        public void add(CTrimestry args)
         {
-            Models.MUsers obj = new Models.MUsers();
+            Models.MTrimestry obj = new Models.MTrimestry();
             obj.insert(args.fields);
             message = obj.callback;
         }
-        public void update(CUser args)
+        public void update(CTrimestry args)
         {
-            Models.MUsers obj = new Models.MUsers();
+            Models.MTrimestry obj = new Models.MTrimestry();
             obj.update(args.fields);
             message = obj.callback;
         }
-        public void delete(CUser args)
+        public void delete(CTrimestry args)
         {
-            Models.MUsers obj = new Models.MUsers();
+            Models.MTrimestry obj = new Models.MTrimestry();
             obj.delete(args.fields);
             message = obj.callback;
         }

@@ -5,31 +5,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Commercial_Management.Controllers
+namespace FinanceManager.Controllers
 {
-    class CUser
+    class CYear
     {
         Dictionary<string, string> fields { get; set; }
         public Dictionary<string, string> message;
-        public CUser(Dictionary<string, string> fields)
+        public CYear(Dictionary<string, string> fields)
         {
             this.fields = fields;
         }
-        public void add(CUser args)
+        public void add(CYear args)
         {
-            Models.MUsers obj = new Models.MUsers();
+            Models.MYear obj = new Models.MYear();
             obj.insert(args.fields);
             message = obj.callback;
         }
-        public void update(CUser args)
+        public void update(CYear args)
         {
-            Models.MUsers obj = new Models.MUsers();
+            Models.MYear obj = new Models.MYear();
             obj.update(args.fields);
             message = obj.callback;
         }
-        public void delete(CUser args)
+        public void delete(CYear args)
         {
-            Models.MUsers obj = new Models.MUsers();
+            Models.MYear obj = new Models.MYear();
             obj.delete(args.fields);
             message = obj.callback;
         }

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Commercial_Management.Controllers
+namespace FinanceManager.Controllers
 {
     class CUser
     {

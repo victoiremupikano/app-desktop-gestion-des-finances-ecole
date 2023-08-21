@@ -1,4 +1,4 @@
-﻿namespace FinanceManager.SettingsApp
+﻿namespace Commercial_Management.SettingsApp
 {
     partial class frmSettings
     {
@@ -102,9 +102,9 @@
             this.lblConnexion.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblConnexion.Location = new System.Drawing.Point(14, 16);
             this.lblConnexion.Name = "lblConnexion";
-            this.lblConnexion.Size = new System.Drawing.Size(227, 24);
+            this.lblConnexion.Size = new System.Drawing.Size(105, 24);
             this.lblConnexion.TabIndex = 58;
-            this.lblConnexion.Text = "Paramètres de connexion";
+            this.lblConnexion.Text = "Paramètres";
             // 
             // picMinimize
             // 
