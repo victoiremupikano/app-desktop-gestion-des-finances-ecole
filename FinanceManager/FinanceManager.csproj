@@ -71,7 +71,6 @@
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginLogout.cs" />
-    <Compile Include="Models\CUser.cs" />
     <Compile Include="Models\MUsers.cs" />
     <Compile Include="Models\MTrimestry.cs" />
     <Compile Include="Models\MStudent.cs" />
