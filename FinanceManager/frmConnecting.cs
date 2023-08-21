@@ -139,7 +139,7 @@ namespace FinanceManager
 
         private void picSettings_Click(object sender, EventArgs e)
         {
-            SettingsApps.frmSettings frm = new SettingsApps.frmSettings();
+            SettingsApp.frmSettings frm = new SettingsApp.frmSettings();
             frm.ShowDialog();
         }
 

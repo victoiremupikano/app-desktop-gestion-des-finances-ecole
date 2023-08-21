@@ -266,8 +266,8 @@
             // 
             this.outilsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.CopteToolStripMenuItem,
-            this.annéeToolStripMenuItem,
-            this.trimestreToolStripMenuItem});
+            this.trimestreToolStripMenuItem,
+            this.annéeToolStripMenuItem});
             this.outilsToolStripMenuItem.Name = "outilsToolStripMenuItem";
             this.outilsToolStripMenuItem.Size = new System.Drawing.Size(80, 20);
             this.outilsToolStripMenuItem.Text = "Paramètres";
@@ -275,21 +275,21 @@
             // CopteToolStripMenuItem
             // 
             this.CopteToolStripMenuItem.Name = "CopteToolStripMenuItem";
-            this.CopteToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.CopteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.CopteToolStripMenuItem.Text = "Utilisateur";
             this.CopteToolStripMenuItem.Click += new System.EventHandler(this.CopteToolStripMenuItem_Click);
             // 
             // annéeToolStripMenuItem
             // 
             this.annéeToolStripMenuItem.Name = "annéeToolStripMenuItem";
-            this.annéeToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.annéeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.annéeToolStripMenuItem.Text = "Année";
             this.annéeToolStripMenuItem.Click += new System.EventHandler(this.annéeToolStripMenuItem_Click);
             // 
             // trimestreToolStripMenuItem
             // 
             this.trimestreToolStripMenuItem.Name = "trimestreToolStripMenuItem";
-            this.trimestreToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.trimestreToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.trimestreToolStripMenuItem.Text = "Trimestre";
             this.trimestreToolStripMenuItem.Click += new System.EventHandler(this.trimestreToolStripMenuItem_Click);
             // 
