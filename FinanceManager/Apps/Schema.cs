@@ -10,6 +10,7 @@ namespace FinanceManager.Apps
     {
         public Dictionary<string, string> table = new Dictionary<string, string> {
             { "tb_year", "year" },
+            { "tb_user", "user" },
             { "tb_student", "student" },
             { "tb_trimestry", "trimestry" },
             { "tb_account", "account" },
@@ -19,6 +20,13 @@ namespace FinanceManager.Apps
         /// <summary>
         /// les champs des differentes tables
         /// </summary>
+        public Dictionary<string, string> tb_user = new Dictionary<string, string> {
+            { "id", "id" },
+            { "login", "login" },
+            { "password", "password" },
+            { "row_added","row_add"},
+            { "row_updated","row_update"}
+        };
         public Dictionary<string, string> tb_year = new Dictionary<string, string> {
             { "id", "id_year" },
             { "wording", "wording" },
