@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Commercial_Management.Services.CBO
+namespace FinanceManager.Services.CBO
 {
     class Db
     {

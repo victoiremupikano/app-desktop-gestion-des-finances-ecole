@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Commercial_Management.Services.CBO
+namespace FinanceManager.Services.CBO
 {
     class cboDb
     {
