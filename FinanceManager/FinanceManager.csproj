@@ -77,6 +77,12 @@
     <Compile Include="Services\ImportExport.cs" />
     <Compile Include="Services\MsgFRM.cs" />
     <Compile Include="Services\Session.cs" />
+    <Compile Include="SettingsApps\frmSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SettingsApps\frmSettings.designer.cs">
+      <DependentUpon>frmSettings.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -85,7 +91,11 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SettingsApps\frmSettings.resx">
+      <DependentUpon>frmSettings.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -100,8 +110,136 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="SettingsApps\" />
     <Folder Include="Views\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Add_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\analydid.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_expand_alt3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_right-up.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_up-down_alt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\carts.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\database.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Delete_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete-forever.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\depot.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Download_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Edit_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Find_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ic3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_archive_alt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_cart.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_cog.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_currency_alt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_document_alt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_download.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_floppy_alt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_id_alt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_loading.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_minus-06.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_toolbox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon_trash_alt.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icone menu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Icone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Message.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\New_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PIM Backup.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\print.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Print_256x256.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Search_24x24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\show.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\synch.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\time.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
