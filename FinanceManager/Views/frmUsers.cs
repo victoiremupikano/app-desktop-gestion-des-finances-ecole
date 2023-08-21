@@ -10,12 +10,11 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.IO;
 
-namespace Commercial_Management.Views
+namespace FinanceManager.Views
 {
     public partial class frmUsers : Form
     {
         public string id;
-        public string type = string.Empty;
 
         public frmUsers()
         {
@@ -57,7 +56,6 @@ namespace Commercial_Management.Views
                     {"id", id},
                     {"login", txtUserName.Text},
                     {"password", crypt.Hash(txtPassword.Text)},
-                    {"type", type}
                 };
 
                     //on passe les donnees dans le controllers
@@ -131,8 +129,7 @@ namespace Commercial_Management.Views
                 Dictionary<string, string> fields = new Dictionary<string, string>{
                     {"login", txtUserName.Text},
                     {"password", crypt.Hash(txtPassword.Text)},
-                    {"type", type},
-            };
+                };
 
                 //on passe les donnees dans le controllers
                 Controllers.CUser obj = new Controllers.CUser(fields);
@@ -170,7 +167,7 @@ namespace Commercial_Management.Views
 
                 while (dr.Read())
                 {
-                    dgvData.Rows.Add(dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString());
+                    dgvData.Rows.Add(dr[0].ToString(), dr[1].ToString(), dr[2].ToString());
                 }
                 Apps.Query.DR.Close();
             }
@@ -196,14 +193,6 @@ namespace Commercial_Management.Views
                 id = dgvData.CurrentRow.Cells[0].Value.ToString();
                 txtUserName.Text = dgvData.CurrentRow.Cells[1].Value.ToString();
                 txtPassword.Text = dgvData.CurrentRow.Cells[2].Value.ToString();
-                if(dgvData.CurrentRow.Cells[3].Value.ToString() == "Administrateur")
-                {
-                    rbAdminCpt.Checked = true;
-                }
-                else
-                {
-                    rbSimpleCpt.Checked = true;
-                }
             }
         }
 
@@ -217,8 +206,6 @@ namespace Commercial_Management.Views
 
         private void frmUsersCpt_Load(object sender, EventArgs e)
         {
-            //chargement avec le type de copmte user simple
-            rbSimpleCpt.Checked = true;
             notice();
             loard();
         }
@@ -286,14 +273,6 @@ namespace Commercial_Management.Views
                 //provenance de la commande pour la frm
                 frm.FRM = "FRM_User";
                 frm.txtUserName.Text = this.txtUserName.Text;
-                if (dgvData.CurrentRow.Cells[3].Value.ToString() == "Administrateur")
-                {
-                    frm.rbAdminCpt.Checked = true;
-                }
-                else
-                {
-                    frm.rbSimpleCpt.Checked = true;
-                }
 
                 if (frm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
@@ -334,36 +313,6 @@ namespace Commercial_Management.Views
         private void dgvData_SelectionChanged(object sender, EventArgs e)
         {
             migrate();
-        }
-
-        private void rbAdminCpt_CheckedChanged(object sender, EventArgs e)
-        {
-            type = "Administrateur";
-        }
-
-        private void rbSimpleCpt_CheckedChanged(object sender, EventArgs e)
-        {
-            type = "Simple User";
-        }
-
-        private void dgvData_DoubleClick(object sender, EventArgs e)
-        {
-            if (dgvData.Rows.Count > 0)
-            {
-                Views.Secure.frmAccess frm = new Secure.frmAccess();
-                //on transfert les data
-                frm.id_agent = dgvData.CurrentRow.Cells[0].Value.ToString();
-                frm.names_agent = dgvData.CurrentRow.Cells[1].Value.ToString();
-
-                //on passe le noms de la personne et son numero de facture sur le titre de la fenetre
-                frm.Text = "Ajout des droits d'accès utilisateur [ " + dgvData.CurrentRow.Cells[1].Value.ToString().ToUpper() + " ]";
-                frm.ShowDialog();
-            }
-            else
-            {
-                Services.MsgFRM msg = new Services.MsgFRM();
-                msg.getAttention("Attention, veillez charger la facture !");
-            }
         }
     }
 }

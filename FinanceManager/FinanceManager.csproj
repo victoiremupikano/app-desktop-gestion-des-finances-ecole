@@ -85,6 +85,12 @@
     <Compile Include="Services\convertDate.cs" />
     <Compile Include="Services\Crypto.cs" />
     <Compile Include="Services\DtgvServices.cs" />
+    <Compile Include="Services\FRM\frmVerifyPWD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Services\FRM\frmVerifyPWD.designer.cs">
+      <DependentUpon>frmVerifyPWD.cs</DependentUpon>
+    </Compile>
     <Compile Include="Services\ImgServices.cs" />
     <Compile Include="Services\ImportExport.cs" />
     <Compile Include="Services\MsgFRM.cs" />
@@ -94,6 +100,18 @@
     </Compile>
     <Compile Include="SettingsApps\frmSettings.designer.cs">
       <DependentUpon>frmSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmArrival.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmArrival.designer.cs">
+      <DependentUpon>frmArrival.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\frmUsers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmUsers.designer.cs">
+      <DependentUpon>frmUsers.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="frmConnecting.resx">
       <DependentUpon>frmConnecting.cs</DependentUpon>
@@ -111,8 +129,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Services\FRM\frmVerifyPWD.resx">
+      <DependentUpon>frmVerifyPWD.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SettingsApps\frmSettings.resx">
       <DependentUpon>frmSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmArrival.resx">
+      <DependentUpon>frmArrival.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmUsers.resx">
+      <DependentUpon>frmUsers.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -127,9 +154,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\Add_16x16.png" />
   </ItemGroup>
