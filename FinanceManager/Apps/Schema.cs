@@ -28,7 +28,7 @@ namespace FinanceManager.Apps
             { "row_updated","row_update"}
         };
         public Dictionary<string, string> tb_year = new Dictionary<string, string> {
-            { "id", "id_year" },
+            { "id", "year_id" },
             { "wording", "wording" },
             { "dteStart", "dteStart" },
             { "dteEnd", "dteEnd" },
@@ -38,7 +38,7 @@ namespace FinanceManager.Apps
             { "row_updated","row_update"}
         };
         public Dictionary<string, string> tb_student = new Dictionary<string, string> {
-            { "id", "id" },
+            { "id", "student_id" },
             { "names", "names" },
             { "kind", "kind" },
             { "birthday", "birthday" },
