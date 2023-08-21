@@ -74,7 +74,7 @@ namespace FinanceManager.Apps
         public Dictionary<string, string> tb_payment = new Dictionary<string, string> {
             { "id", "payment_id" },
             { "wording", "wording" },
-            { "my_payed", "my_payed" },
+            { "mt_payed", "mt_payed" },
             { "fk1", "fk_account" },
             { "fk_year", "fk_year" },
             { "fk_user", "fk_user" },

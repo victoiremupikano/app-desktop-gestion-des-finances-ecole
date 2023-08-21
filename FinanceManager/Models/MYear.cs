@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FinanceManager.Models
 {
-    class Mtb_year
+    class MYear
     {
         public Dictionary<string, string> callback;
 

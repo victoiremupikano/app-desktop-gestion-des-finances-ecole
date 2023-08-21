@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace FinanceManager.Models
 {
-    class MUsers
+    class MStudent
     {
         public Dictionary<string, string> callback;
+
         public async void insert(Dictionary<string, string> args)
         {
             try
@@ -18,9 +19,17 @@ namespace FinanceManager.Models
                 {
                     Apps.Schema schema = new Apps.Schema();
                     if (await Apps.Query.insertPrepared(
-                            schema.table["tb_user"],
-                                new MySqlParameter($"@{schema.tb_user["login"]}", args["login"]),
-                                new MySqlParameter($"@{schema.tb_user["password"]}", args["password"])
+                            schema.table["tb_student"],
+                                new MySqlParameter($"@{schema.tb_student["names"]}", args["names"]),
+                                new MySqlParameter($"@{schema.tb_student["kind"]}", args["kind"]),
+                                new MySqlParameter($"@{schema.tb_student["birthday"]}", args["birthday"]),
+                                new MySqlParameter($"@{schema.tb_student["children_father"]}", args["children_father"]),
+                                new MySqlParameter($"@{schema.tb_student["children_mather"]}", args["children_mather"]),
+                                new MySqlParameter($"@{schema.tb_student["religin"]}", args["religin"]),
+                                new MySqlParameter($"@{schema.tb_student["adress"]}", args["adress"]),
+                                new MySqlParameter($"@{schema.tb_student["tel"]}", args["tel"]),
+                                new MySqlParameter($"@{schema.tb_student["fk_year"]}", args["fk_year"]),
+                                new MySqlParameter($"@{schema.tb_student["fk_user"]}", args["fk_user"])
                             ))
                     {
                         callback = new Dictionary<string, string> {
@@ -57,10 +66,18 @@ namespace FinanceManager.Models
                     Apps.Schema schema = new Apps.Schema();
 
                     if (await Apps.Query.updatePrepared(
-                            schema.table["tb_user"],
-                                new MySqlParameter($"@{schema.tb_user["id"]}", args["id"]),
-                                new MySqlParameter($"@{schema.tb_user["login"]}", args["login"]),
-                                new MySqlParameter($"@{schema.tb_user["password"]}", args["password"])
+                            schema.table["tb_student"],
+                                new MySqlParameter($"@{schema.tb_student["id"]}", args["id"]),
+                                new MySqlParameter($"@{schema.tb_student["names"]}", args["names"]),
+                                new MySqlParameter($"@{schema.tb_student["kind"]}", args["kind"]),
+                                new MySqlParameter($"@{schema.tb_student["birthday"]}", args["birthday"]),
+                                new MySqlParameter($"@{schema.tb_student["children_father"]}", args["children_father"]),
+                                new MySqlParameter($"@{schema.tb_student["children_mather"]}", args["children_mather"]),
+                                new MySqlParameter($"@{schema.tb_student["religin"]}", args["religin"]),
+                                new MySqlParameter($"@{schema.tb_student["adress"]}", args["adress"]),
+                                new MySqlParameter($"@{schema.tb_student["tel"]}", args["tel"]),
+                                new MySqlParameter($"@{schema.tb_student["fk_year"]}", args["fk_year"]),
+                                new MySqlParameter($"@{schema.tb_student["fk_user"]}", args["fk_user"])
                             ))
                     {
                         callback = new Dictionary<string, string> {
@@ -98,8 +115,8 @@ namespace FinanceManager.Models
                     Apps.Schema schema = new Apps.Schema();
 
                     if (await Apps.Query.deletePrepared(
-                            schema.table["tb_user"],
-                                new MySqlParameter($"@{schema.tb_user["id"]}", args["id"])
+                            schema.table["tb_student"],
+                                new MySqlParameter($"@{schema.tb_student["id"]}", args["id"])
                            ))
                     {
                         callback = new Dictionary<string, string> {
@@ -128,14 +145,14 @@ namespace FinanceManager.Models
             }
 
         }
-        public async void get()
+        public async void reseach(string param)
         {
             try
             {
                 if (await Apps.Query.Open())
                 {
                     Apps.Schema schema = new Apps.Schema();
-                    Apps.Query.getData($"select * from {schema.table["tb_user"]} order by {schema.tb_user["id"]} DESC");
+                    Apps.Query.getData($"select * from {schema.table["tb_student"]} where {schema.tb_student["names"]} like '%{param}%' order by {schema.tb_student["id"]} DESC;");
                     callback = new Dictionary<string, string> {
                         { "type", "success" }, { "message", "Collecte des données sans soucies" }
                     };
@@ -154,35 +171,30 @@ namespace FinanceManager.Models
                     };
             }
         }
-        public void session(Dictionary<string, string> fields)
+        public async void get()
         {
-            LoginLogout obj = new LoginLogout(fields);
-            obj.login(obj);
-            if (obj.callback["type"] == "success")
+            try
             {
-                MySqlDataReader dr = Apps.Query.DR;
-                while (dr.Read())
+                if (await Apps.Query.Open())
                 {
-                    if (dr.HasRows)
-                    {
-                        Services.Session.UserSession = new Dictionary<string, string> {
-                            { "id", dr[0].ToString()},
-                            { "login", dr[1].ToString()},
-                            { "password", dr[2].ToString()},
-                        };
-                    }
+                    Apps.Schema schema = new Apps.Schema();
+                    Apps.Query.getData($"select * from {schema.table["tb_student"]} order by {schema.tb_student["id"]} DESC;");
+                    callback = new Dictionary<string, string> {
+                        { "type", "success" }, { "message", "Collecte des données sans soucies" }
+                    };
                 }
-                Apps.Query.DR.Close();
+                else
+                {
+                    callback = new Dictionary<string, string> {
+                        { "type", "connection" }, { "message", "Impossible d'acceder à la base de données; vérifier votre connexion" }
+                    };
+                }
             }
-            else if (obj.callback["type"] == "failure")
+            catch (Exception ex)
             {
-                Services.MsgFRM msg = new Services.MsgFRM();
-                msg.getError(obj.callback["message"]);
-            }
-            else
-            {
-                Services.MsgFRM msg = new Services.MsgFRM();
-                msg.getError(obj.callback["message"]);
+                callback = new Dictionary<string, string> {
+                        { "type", "failure" }, { "message", "Chargement echouer " + ex.Message}
+                    };
             }
         }
     }

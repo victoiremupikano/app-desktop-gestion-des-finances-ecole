@@ -60,6 +60,10 @@
     </Compile>
     <Compile Include="LoginLogout.cs" />
     <Compile Include="Models\MUsers.cs" />
+    <Compile Include="Models\MTrimestry.cs" />
+    <Compile Include="Models\MStudent.cs" />
+    <Compile Include="Models\MAccount.cs" />
+    <Compile Include="Models\MPayment.cs" />
     <Compile Include="Models\MYear.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
