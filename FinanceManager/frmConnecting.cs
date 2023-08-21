@@ -66,20 +66,8 @@ namespace FinanceManager
                 else
                 {
                     Services.Crypto crypt = new Services.Crypto();
-
-                    //
-                    String type = string.Empty;
-                    if (rbAdminCpt.Checked)
-                    {
-                        type = "Administrateur";
-                    }
-                    else
-                    {
-                        type = "Simple User";
-                    }
                     Dictionary<string, string> fields = new Dictionary<string, string>
                     {
-                        {"type", type },
                         {"user", txtUserName.Text },
                         {"pwd", crypt.Hash(txtPassword.Text) }
                     };
@@ -94,10 +82,8 @@ namespace FinanceManager
                             //session
                             Models.MUsers user = new Models.MUsers();
                             user.session(fields);
-                            Models.MProfile profile = new Models.MProfile();
-                            profile.session();
-                            Models.MArrival arrival = new Models.MArrival();
-                            arrival.session();
+                            Models.MYear exercise = new Models.MYear();
+                            exercise.session();
 
                             //frm et new size
                             frmMain frm = new frmMain();
@@ -153,7 +139,7 @@ namespace FinanceManager
 
         private void picSettings_Click(object sender, EventArgs e)
         {
-            SettingsApp.frmSettings frm = new SettingsApp.frmSettings();
+            SettingsApps.frmSettings frm = new SettingsApps.frmSettings();
             frm.ShowDialog();
         }
 

@@ -1,4 +1,4 @@
-﻿namespace Commercial_Management.Services.FRM
+﻿namespace FinanceManager.Services.FRM
 {
     partial class frmVerifyPWD
     {
@@ -34,8 +34,6 @@
             this.lblPassword = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.btnVerify = new System.Windows.Forms.Button();
-            this.rbAdminCpt = new System.Windows.Forms.RadioButton();
-            this.rbSimpleCpt = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // lblUserName
@@ -91,7 +89,7 @@
             // btnVerify
             // 
             this.btnVerify.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnVerify.Location = new System.Drawing.Point(301, 157);
+            this.btnVerify.Location = new System.Drawing.Point(301, 112);
             this.btnVerify.Name = "btnVerify";
             this.btnVerify.Size = new System.Drawing.Size(100, 27);
             this.btnVerify.TabIndex = 0;
@@ -99,43 +97,11 @@
             this.btnVerify.UseVisualStyleBackColor = true;
             this.btnVerify.Click += new System.EventHandler(this.btnVerify_Click);
             // 
-            // rbAdminCpt
-            // 
-            this.rbAdminCpt.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.rbAdminCpt.AutoSize = true;
-            this.rbAdminCpt.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbAdminCpt.Location = new System.Drawing.Point(143, 98);
-            this.rbAdminCpt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.rbAdminCpt.Name = "rbAdminCpt";
-            this.rbAdminCpt.Size = new System.Drawing.Size(119, 21);
-            this.rbAdminCpt.TabIndex = 2;
-            this.rbAdminCpt.TabStop = true;
-            this.rbAdminCpt.Text = "Administrateur";
-            this.rbAdminCpt.UseVisualStyleBackColor = true;
-            this.rbAdminCpt.CheckedChanged += new System.EventHandler(this.rbAdminCpt_CheckedChanged_1);
-            // 
-            // rbSimpleCpt
-            // 
-            this.rbSimpleCpt.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.rbSimpleCpt.AutoSize = true;
-            this.rbSimpleCpt.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbSimpleCpt.Location = new System.Drawing.Point(268, 98);
-            this.rbSimpleCpt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.rbSimpleCpt.Name = "rbSimpleCpt";
-            this.rbSimpleCpt.Size = new System.Drawing.Size(132, 21);
-            this.rbSimpleCpt.TabIndex = 3;
-            this.rbSimpleCpt.TabStop = true;
-            this.rbSimpleCpt.Text = "Utilisateur simple";
-            this.rbSimpleCpt.UseVisualStyleBackColor = true;
-            this.rbSimpleCpt.CheckedChanged += new System.EventHandler(this.rbSimpleCpt_CheckedChanged_1);
-            // 
             // frmVerifyPWD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(424, 196);
-            this.Controls.Add(this.rbAdminCpt);
-            this.Controls.Add(this.rbSimpleCpt);
+            this.ClientSize = new System.Drawing.Size(424, 151);
             this.Controls.Add(this.btnVerify);
             this.Controls.Add(this.txtPassword);
             this.Controls.Add(this.lblPassword);
@@ -160,7 +126,5 @@
         private System.Windows.Forms.Button btnVerify;
         public System.Windows.Forms.TextBox txtUserName;
         public System.Windows.Forms.TextBox txtPassword;
-        public System.Windows.Forms.RadioButton rbAdminCpt;
-        public System.Windows.Forms.RadioButton rbSimpleCpt;
     }
 }

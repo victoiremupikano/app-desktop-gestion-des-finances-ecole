@@ -10,12 +10,11 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.IO;
 
-namespace Commercial_Management.Services.FRM
+namespace FinanceManager.Services.FRM
 {
     public partial class frmVerifyPWD : Form
     {
         public string FRM { get; set; }
-        public string type = string.Empty;
 
         public frmVerifyPWD()
         {
@@ -43,7 +42,6 @@ namespace Commercial_Management.Services.FRM
                     {
                         {"user", txtUserName.Text },
                         {"pwd", crypt.Hash(txtPassword.Text) },
-                        {"type", type }
                     };
                     LoginLogout linlout = new LoginLogout(fields);
                     linlout.login(linlout);
@@ -71,16 +69,6 @@ namespace Commercial_Management.Services.FRM
                     }
                 }
             }
-        }
-
-        private void rbSimpleCpt_CheckedChanged_1(object sender, EventArgs e)
-        {
-            type = "Simple User";
-        }
-
-        private void rbAdminCpt_CheckedChanged_1(object sender, EventArgs e)
-        {
-            type = "Administrateur";
         }
     }
 }

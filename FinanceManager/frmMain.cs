@@ -162,10 +162,10 @@ namespace FinanceManager
         {
             try
             {
-                if (!Views.Arrival.frmArrival.IsFormOpen(typeof(Views.Arrival.frmArrival)))
+                if (!Views.Arrival.frmYear.IsFormOpen(typeof(Views.Arrival.frmYear)))
                 {
                     //code pur repatrier la frm concerner dans le pnlCentral
-                    callMultiForm(new Views.Arrival.frmArrival());
+                    callMultiForm(new Views.Arrival.frmYear());
                     //...
                     //.. votre code concernant le boutton
 
