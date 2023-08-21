@@ -55,7 +55,6 @@
             this.rapportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timerPrincipal = new System.Windows.Forms.Timer(this.components);
             this.EtiquetteUserCon = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tsplUserConnected = new System.Windows.Forms.ToolStripStatusLabel();
             this.statusStripEtatSoft = new System.Windows.Forms.StatusStrip();
             this.pnlHautMenu.SuspendLayout();
             this.pnlCentraleFrmmain.SuspendLayout();
@@ -79,14 +78,14 @@
             this.pnlHautMenu.Location = new System.Drawing.Point(0, 24);
             this.pnlHautMenu.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlHautMenu.Name = "pnlHautMenu";
-            this.pnlHautMenu.Size = new System.Drawing.Size(1262, 73);
+            this.pnlHautMenu.Size = new System.Drawing.Size(902, 73);
             this.pnlHautMenu.TabIndex = 0;
             // 
             // lblTimeCurrent
             // 
             this.lblTimeCurrent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTimeCurrent.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTimeCurrent.Location = new System.Drawing.Point(1000, 9);
+            this.lblTimeCurrent.Location = new System.Drawing.Point(640, 9);
             this.lblTimeCurrent.Name = "lblTimeCurrent";
             this.lblTimeCurrent.Size = new System.Drawing.Size(179, 57);
             this.lblTimeCurrent.TabIndex = 118;
@@ -127,7 +126,7 @@
             this.btbOtherOption.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btbOtherOption.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btbOtherOption.ForeColor = System.Drawing.SystemColors.Control;
-            this.btbOtherOption.Location = new System.Drawing.Point(1185, 9);
+            this.btbOtherOption.Location = new System.Drawing.Point(825, 9);
             this.btbOtherOption.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btbOtherOption.Name = "btbOtherOption";
             this.btbOtherOption.Size = new System.Drawing.Size(61, 57);
@@ -218,7 +217,7 @@
             this.pnlCentraleFrmmain.Location = new System.Drawing.Point(0, 97);
             this.pnlCentraleFrmmain.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnlCentraleFrmmain.Name = "pnlCentraleFrmmain";
-            this.pnlCentraleFrmmain.Size = new System.Drawing.Size(1262, 582);
+            this.pnlCentraleFrmmain.Size = new System.Drawing.Size(902, 290);
             this.pnlCentraleFrmmain.TabIndex = 0;
             // 
             // btnConfig
@@ -232,7 +231,7 @@
             this.btnConfig.ForeColor = System.Drawing.Color.White;
             this.btnConfig.Image = global::FinanceManager.Properties.Resources.database;
             this.btnConfig.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnConfig.Location = new System.Drawing.Point(1109, 176);
+            this.btnConfig.Location = new System.Drawing.Point(749, 176);
             this.btnConfig.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnConfig.Name = "btnConfig";
             this.btnConfig.Size = new System.Drawing.Size(98, 95);
@@ -253,7 +252,7 @@
             this.btnMessager.ForeColor = System.Drawing.Color.White;
             this.btnMessager.Image = global::FinanceManager.Properties.Resources.Message;
             this.btnMessager.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnMessager.Location = new System.Drawing.Point(1109, 73);
+            this.btnMessager.Location = new System.Drawing.Point(749, 73);
             this.btnMessager.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnMessager.Name = "btnMessager";
             this.btnMessager.Size = new System.Drawing.Size(98, 95);
@@ -276,21 +275,21 @@
             // CopteToolStripMenuItem
             // 
             this.CopteToolStripMenuItem.Name = "CopteToolStripMenuItem";
-            this.CopteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.CopteToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.CopteToolStripMenuItem.Text = "Utilisateur";
             this.CopteToolStripMenuItem.Click += new System.EventHandler(this.CopteToolStripMenuItem_Click);
             // 
             // annéeToolStripMenuItem
             // 
             this.annéeToolStripMenuItem.Name = "annéeToolStripMenuItem";
-            this.annéeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.annéeToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.annéeToolStripMenuItem.Text = "Année";
             this.annéeToolStripMenuItem.Click += new System.EventHandler(this.annéeToolStripMenuItem_Click);
             // 
             // trimestreToolStripMenuItem
             // 
             this.trimestreToolStripMenuItem.Name = "trimestreToolStripMenuItem";
-            this.trimestreToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.trimestreToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
             this.trimestreToolStripMenuItem.Text = "Trimestre";
             this.trimestreToolStripMenuItem.Click += new System.EventHandler(this.trimestreToolStripMenuItem_Click);
             // 
@@ -306,7 +305,7 @@
             this.menuStripMenuPrincipale.Location = new System.Drawing.Point(0, 0);
             this.menuStripMenuPrincipale.Name = "menuStripMenuPrincipale";
             this.menuStripMenuPrincipale.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
-            this.menuStripMenuPrincipale.Size = new System.Drawing.Size(1262, 24);
+            this.menuStripMenuPrincipale.Size = new System.Drawing.Size(902, 24);
             this.menuStripMenuPrincipale.TabIndex = 1;
             this.menuStripMenuPrincipale.Text = "menuStrip1";
             // 
@@ -347,28 +346,18 @@
             // 
             this.EtiquetteUserCon.BackColor = System.Drawing.SystemColors.Control;
             this.EtiquetteUserCon.Name = "EtiquetteUserCon";
-            this.EtiquetteUserCon.Size = new System.Drawing.Size(146, 17);
-            this.EtiquetteUserCon.Text = "Utulisateur connécter : ";
-            // 
-            // tsplUserConnected
-            // 
-            this.tsplUserConnected.BackColor = System.Drawing.SystemColors.Control;
-            this.tsplUserConnected.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tsplUserConnected.ForeColor = System.Drawing.Color.DimGray;
-            this.tsplUserConnected.Name = "tsplUserConnected";
-            this.tsplUserConnected.Size = new System.Drawing.Size(15, 17);
-            this.tsplUserConnected.Text = "?";
+            this.EtiquetteUserCon.Size = new System.Drawing.Size(45, 17);
+            this.EtiquetteUserCon.Text = "Status";
             // 
             // statusStripEtatSoft
             // 
             this.statusStripEtatSoft.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.statusStripEtatSoft.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.EtiquetteUserCon,
-            this.tsplUserConnected});
-            this.statusStripEtatSoft.Location = new System.Drawing.Point(0, 679);
+            this.EtiquetteUserCon});
+            this.statusStripEtatSoft.Location = new System.Drawing.Point(0, 387);
             this.statusStripEtatSoft.Name = "statusStripEtatSoft";
             this.statusStripEtatSoft.Padding = new System.Windows.Forms.Padding(1, 0, 16, 0);
-            this.statusStripEtatSoft.Size = new System.Drawing.Size(1262, 22);
+            this.statusStripEtatSoft.Size = new System.Drawing.Size(902, 22);
             this.statusStripEtatSoft.TabIndex = 79;
             this.statusStripEtatSoft.Text = "statusStripInfoLogicielle";
             // 
@@ -377,7 +366,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(1262, 701);
+            this.ClientSize = new System.Drawing.Size(902, 409);
             this.Controls.Add(this.pnlCentraleFrmmain);
             this.Controls.Add(this.statusStripEtatSoft);
             this.Controls.Add(this.pnlHautMenu);
@@ -424,7 +413,6 @@
         public System.Windows.Forms.Panel pnlBasAccount;
         public System.Windows.Forms.Panel pnlBasStudent;
         private System.Windows.Forms.ToolStripStatusLabel EtiquetteUserCon;
-        private System.Windows.Forms.ToolStripStatusLabel tsplUserConnected;
         private System.Windows.Forms.StatusStrip statusStripEtatSoft;
         private System.Windows.Forms.ToolStripMenuItem arrivageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem moleculesToolStripMenuItem;

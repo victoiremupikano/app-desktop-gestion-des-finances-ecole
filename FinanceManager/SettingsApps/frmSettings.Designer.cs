@@ -223,7 +223,7 @@
             this.txtdatabase.Font = new System.Drawing.Font("Century Gothic", 8.25F);
             this.txtdatabase.Location = new System.Drawing.Point(7, 122);
             this.txtdatabase.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtdatabase.MaxLength = 15;
+            this.txtdatabase.MaxLength = 25;
             this.txtdatabase.Name = "txtdatabase";
             this.txtdatabase.Size = new System.Drawing.Size(159, 21);
             this.txtdatabase.TabIndex = 9;

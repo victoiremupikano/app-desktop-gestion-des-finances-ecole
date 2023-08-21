@@ -24,7 +24,7 @@ namespace FinanceManager
                 if (await Apps.Query.Open())
                 {
                     Apps.Schema schema = new Apps.Schema();
-                    Apps.Query.getData($"select * from {schema.table["tb_user"]} where {schema.tb_user["login"]} = '{args.fields["tb_user"]}' and {schema.tb_user["password"]} = '{args.fields["pwd"]}'';");
+                    Apps.Query.getData($"select * from {schema.table["tb_user"]} where {schema.tb_user["login"]} = '{args.fields["user"]}' and {schema.tb_user["password"]} = '{args.fields["pwd"]}';");
                     callback = new Dictionary<string, string> {
                         { "type", "success" }, { "message", "Collecte des données sans soucies" }
                     };
