@@ -159,6 +159,32 @@ namespace FinanceManager
             }
             catch { }
         }
+        private void call_trimestry()
+        {
+            try
+            {
+                if (!Views.frmTrimestry.IsFormOpen(typeof(Views.frmTrimestry)))
+                {
+                    //code pur repatrier la frm concerner dans le pnlCentral
+                    callMultiForm(new Views.frmTrimestry());
+                    //...
+                    //.. votre code concernant le boutton
+
+                    //rendre les panels de bas invisible au clic btn sauf pour le btn
+
+                    this.pnlBasPayment.Visible = false;
+                    this.pnlBasAccount.Visible = false;
+                    this.pnlBasRapports.Visible = false;
+                    this.pnlBasStudent.Visible = false;
+                }
+                else
+                {
+                    //on ne fait rien
+                }
+            }
+            catch { }
+        }
+
         #endregion
 
         #region menu-haut
@@ -174,7 +200,7 @@ namespace FinanceManager
 
         private void trimestreToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            call_trimestry();
         }
 
         private void arrivageToolStripMenuItem_Click(object sender, EventArgs e)
