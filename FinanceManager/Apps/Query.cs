@@ -1,6 +1,5 @@
 ﻿using FinanceManager.Properties;
 using MySql.Data.MySqlClient;
-using FinanceManager.Properties;
 using System;
 using System.Collections.Generic;
 using System.Data;
