@@ -1,6 +1,6 @@
 ﻿namespace FinanceManager.Views
 {
-    partial class frmSearchStudent
+    partial class frmStudent
     {
         /// <summary>
         /// Required designer variable.

@@ -13,14 +13,14 @@ using MySql.Data.MySqlClient;
 
 namespace FinanceManager.Views
 {
-    public partial class frmSearchStudent : Form
+    public partial class frmStudent : Form
     {
         public string id;
 
         Services.convertDate valid = new Services.convertDate();
         Services.DtgvServices dgv = new Services.DtgvServices();
 
-        public frmSearchStudent()
+        public frmStudent()
         {
             InitializeComponent();
         }
