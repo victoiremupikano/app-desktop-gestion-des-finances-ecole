@@ -22,8 +22,8 @@ namespace FinanceManager.Models
                     if (await Apps.Query.insertPrepared(
                             schema.table["tb_account"],
                                 new MySqlParameter($"@{schema.tb_account["wording"]}", args["wording"]),
-                                new MySqlParameter($"@{schema.tb_account["fk1"]}", args["fk_student"]),
-                                new MySqlParameter($"@{schema.tb_account["fk2"]}", args["fk_trimestry"]),
+                                new MySqlParameter($"@{schema.tb_account["fk1"]}", args["fk1"]),
+                                new MySqlParameter($"@{schema.tb_account["fk2"]}", args["fk2"]),
                                 new MySqlParameter($"@{schema.tb_account["fk_year"]}", args["fk_year"]),
                                 new MySqlParameter($"@{schema.tb_account["fk_user"]}", args["fk_user"])
                             ))
@@ -65,8 +65,8 @@ namespace FinanceManager.Models
                             schema.table["tb_account"],
                                 new MySqlParameter($"@{schema.tb_account["id"]}", args["id"]),
                                 new MySqlParameter($"@{schema.tb_account["wording"]}", args["wording"]),
-                                new MySqlParameter($"@{schema.tb_account["fk1"]}", args["fk_student"]),
-                                new MySqlParameter($"@{schema.tb_account["fk2"]}", args["fk_trimestry"]),
+                                new MySqlParameter($"@{schema.tb_account["fk1"]}", args["fk1"]),
+                                new MySqlParameter($"@{schema.tb_account["fk2"]}", args["fk2"]),
                                 new MySqlParameter($"@{schema.tb_account["fk_year"]}", args["fk_year"]),
                                 new MySqlParameter($"@{schema.tb_account["fk_user"]}", args["fk_user"])
                             ))

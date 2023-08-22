@@ -217,7 +217,7 @@ namespace FinanceManager.Views
                     Dictionary<string, string> fields = new Dictionary<string, string>{
                             {"wording", dr.Cells[4].Value.ToString()},
                             {"fk1", dr.Cells[0].Value.ToString()},
-                            {"fk2", dr.Cells[5].Value.ToString().Replace(",", ".")},
+                            {"fk2", dr.Cells[5].Value.ToString()},
                             {"fk_year",  Services.Session.ExerciselSession["id"]},
                             {"fk_user", Services.Session.UserSession["id"]},
                         };
@@ -317,7 +317,7 @@ namespace FinanceManager.Views
                 //
                 ///Ajout des lignes dans des produit(Operatios) dans le pnnier
                 //
-                this.dgvDataOperUp.Rows.Add(this.dgvData.CurrentRow.Cells[0].Value.ToString(), this.dgvData.CurrentRow.Cells[1].Value.ToString(), this.dgvData.CurrentRow.Cells[2].Value.ToString(), this.dgvData.CurrentRow.Cells[3].Value.ToString(), this.dgvData.CurrentRow.Cells[9].Value.ToString(), cboTrimestry.Text, fk_trimestry, null);
+                this.dgvDataOperUp.Rows.Add(this.dgvData.CurrentRow.Cells[0].Value.ToString(), this.dgvData.CurrentRow.Cells[1].Value.ToString(), this.dgvData.CurrentRow.Cells[2].Value.ToString(), this.dgvData.CurrentRow.Cells[9].Value.ToString(), cboTrimestry.Text, fk_trimestry, null);
                 btnSaved.Enabled = true; //activation du btn Enregistrer
             }
             catch (Exception)
@@ -334,7 +334,7 @@ namespace FinanceManager.Views
             {
                 try
                 {
-                    this.dgvDataOperUp.Rows.Add(dr.Cells[0].Value.ToString(), dr.Cells[1].Value.ToString(), dr.Cells[2].Value.ToString(), dr.Cells[3].Value.ToString(), dr.Cells[9].Value.ToString(), cboTrimestry.Text, fk_trimestry, null);
+                    this.dgvDataOperUp.Rows.Add(dr.Cells[0].Value.ToString(), dr.Cells[1].Value.ToString(), dr.Cells[2].Value.ToString(), dr.Cells[9].Value.ToString(), cboTrimestry.Text, fk_trimestry, null);
                 }
                 catch (Exception)
                 {
@@ -525,6 +525,11 @@ namespace FinanceManager.Views
             dgvDataOperUp.Rows.Clear();
 
             btnSaved.Enabled = true;
+        }
+
+        private void dgvData_DoubleClick_1(object sender, EventArgs e)
+        {
+            sendOnly();
         }
 
         private void btnAjouterOper_Click(object sender, EventArgs e)

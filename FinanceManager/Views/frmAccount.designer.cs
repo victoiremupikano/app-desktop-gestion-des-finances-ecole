@@ -177,13 +177,12 @@
             this.cboTrimestry.FormattingEnabled = true;
             this.cboTrimestry.Location = new System.Drawing.Point(100, 22);
             this.cboTrimestry.Name = "cboTrimestry";
-            this.cboTrimestry.Size = new System.Drawing.Size(204, 29);
+            this.cboTrimestry.Size = new System.Drawing.Size(218, 29);
             this.cboTrimestry.TabIndex = 311;
             this.cboTrimestry.SelectedIndexChanged += new System.EventHandler(this.cboTrimestry_SelectedIndexChanged);
             // 
             // lblTrimestry
             // 
-            this.lblTrimestry.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTrimestry.AutoSize = true;
             this.lblTrimestry.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.lblTrimestry.Location = new System.Drawing.Point(7, 22);
@@ -290,6 +289,7 @@
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4});
+            this.dgvData.ContextMenuStrip = this.contextMenuStripRemplissage;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 12F);
@@ -321,6 +321,7 @@
             this.dgvData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvData.Size = new System.Drawing.Size(305, 186);
             this.dgvData.TabIndex = 14;
+            this.dgvData.DoubleClick += new System.EventHandler(this.dgvData_DoubleClick_1);
             // 
             // Column1
             // 

@@ -192,7 +192,7 @@ namespace FinanceManager.Models
                 if (await Apps.Query.Open())
                 {
                     Apps.Schema schema = new Apps.Schema();
-                    Apps.Query.getData($"select * from {schema.table["tb_trimestry"]} where {schema.tb_trimestry["wordimg"]} = '{wording}' and {schema.tb_trimestry["fk_year"]} = '{Services.Session.ExerciselSession["id"]}';");
+                    Apps.Query.getData($"select * from {schema.table["tb_trimestry"]} where {schema.tb_trimestry["wording"]} = '{wording}' and {schema.tb_trimestry["fk_year"]} = '{Services.Session.ExerciselSession["id"]}';");
                     callback = new Dictionary<string, string> {
                         { "type", "success" }, { "message", "Collecte des données sans soucies" }
                     };
