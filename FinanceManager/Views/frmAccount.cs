@@ -16,12 +16,9 @@ namespace FinanceManager.Views
 {
     public partial class frmAccount : Form
     {
-        public string id_add_arrival;
-        public string id_current_oper;
-        public string id_current_arrival;
+        public string id;
 
-        string dtconf, dtexp;
-        //Var stockant les resultant de la verification du doublons dans l'ancien facture
+        //Var stockant les resultant de la verification du doublons
         public string resultverfify, resultverfifyInAddRows;
 
         Services.convertDate valid = new Services.convertDate();
@@ -45,47 +42,20 @@ namespace FinanceManager.Views
             return false;
         }
 
-        //fx pour la mise en application des acces
-        private void applyAccess()
+        private void clo_loader()
         {
-            Models.MAccess obj = new Models.MAccess();
-            //menu 'Déclarer'
-            if(obj.getVal(Services.Session.UserSession["id"], "Arrivages", "Déclarer") == false)
-            {
-                tabControlArr.TabPages.Remove(tabPageDeclareArr);
-            }
-            //Remplir
-            if (obj.getVal(Services.Session.UserSession["id"], "Arrivages", "Remplir") == false)
-            {
-                tabControlArr.TabPages.Remove(tabPage1);
-            }
-        }
-
-        //mettre en couleur le dgv selon la gestion de produit perissable
-        private void searchPeriscopeProduct(int cell1, int cell2)
-        {
-            // on verifie les produits perimer ou expirer
-            Services.DtgvServices dgv = new Services.DtgvServices();
-            dgvDataOperUp = dgv.DGV_row_cell_style_color(dgvDataOperUp, cell1, cell2);
+            Services.CBO.cboDb cbo = new Services.CBO.cboDb();
+            cbo.cbo = cboTrimestry;
+            cboTrimestry = cbo.cboTrimestry();
         }
 
         private void frmArrivage_Load(object sender, EventArgs e)
         {
-            //access
-            applyAccess();
+            clo_loader();
 
-            MsgNotifyIcon();
-
-            //remplissage ethiquette
-            EthiquetteArr();
-
-            btnToModifyAdd.Enabled = false;
-            btnSavedAdd.Enabled = false;
-            btnDeleteAdd.Enabled = false;
-
-            btnToModifyUp.Enabled = false;
-            btnSavedUp.Enabled = false;
-            btnDeleteUp.Enabled = false;
+            btnToModify.Enabled = false;
+            btnSaved.Enabled = false;
+            btnDelete.Enabled = false;
 
             //verouillage de l'interface
             RendreInvisible();
@@ -117,7 +87,7 @@ namespace FinanceManager.Views
         {
             txtDesign.Text = "Nom de l'arrivage";
             txtDescription.Text = "Description de l'arrivage";
-            txtResearchUp.Text = "Taper ici le text à rechercher";
+            txtResearch.Text = "Taper ici le text à rechercher";
         }
 
         //fonction nous aidant à verouillez l'interface de saisie
@@ -554,7 +524,7 @@ namespace FinanceManager.Views
         {
             if (dgvDataOperUp.Rows.Count > 0 && dgvDataOperUp.SelectedRows.Count > 0)
             {
-                id_current_oper = dgvDataOperUp.CurrentRow.Cells[10].Value.ToString();
+                id = dgvDataOperUp.CurrentRow.Cells[10].Value.ToString();
             }
         }
 
@@ -636,9 +606,9 @@ namespace FinanceManager.Views
                         msg.getError(messages);
                     }
 
-                    btnToModifyUp.Enabled = true;
-                    btnSavedUp.Enabled = false;
-                    btnDeleteUp.Enabled = true;
+                    btnToModify.Enabled = true;
+                    btnSaved.Enabled = false;
+                    btnDelete.Enabled = true;
                 }
             }
         }
@@ -649,7 +619,7 @@ namespace FinanceManager.Views
             if (msg.getDialog("Etes-vous sûr de vouloir supprimer ?"))
             {
                 Dictionary<string, string> fields = new Dictionary<string, string>{
-                    {"id", id_current_oper},
+                    {"id", id},
                 };
                 //on passe les donnees dans le controllers
                 Controllers.CFlux obj = new Controllers.CFlux(fields);
@@ -677,9 +647,9 @@ namespace FinanceManager.Views
                     msg.getError(obj.message["message"]);
                 }
 
-                btnToModifyUp.Enabled = true;
-                btnSavedUp.Enabled = false;
-                btnDeleteUp.Enabled = true;
+                btnToModify.Enabled = true;
+                btnSaved.Enabled = false;
+                btnDelete.Enabled = true;
             }
         }
 
@@ -768,9 +738,9 @@ namespace FinanceManager.Views
                 {
                     msg.getError(messages);
                 }
-                btnToModifyUp.Enabled = true;
-                btnSavedUp.Enabled = false;
-                btnDeleteUp.Enabled = true;
+                btnToModify.Enabled = true;
+                btnSaved.Enabled = false;
+                btnDelete.Enabled = true;
             }
         }
 
@@ -826,9 +796,9 @@ namespace FinanceManager.Views
 
             searchPeriscopeProduct(12, 14);
 
-            btnToModifyUp.Enabled = true;
-            btnSavedUp.Enabled = false;
-            btnDeleteUp.Enabled = true;
+            btnToModify.Enabled = true;
+            btnSaved.Enabled = false;
+            btnDelete.Enabled = true;
         }
 
         #endregion
@@ -898,14 +868,14 @@ namespace FinanceManager.Views
                     dteExp = null;
                 }
                 this.dgvDataOperUp.Rows.Add(this.dgvDataProUp.CurrentRow.Cells[0].Value.ToString(), this.dgvDataProUp.CurrentRow.Cells[1].Value.ToString(), this.dgvDataProUp.CurrentRow.Cells[2].Value.ToString(), this.dgvDataProUp.CurrentRow.Cells[3].Value.ToString(), this.dgvDataProUp.CurrentRow.Cells[4].Value.ToString().Replace(".", ","), this.dgvDataProUp.CurrentRow.Cells[5].Value.ToString().Replace(".", ","), this.dgvDataProUp.CurrentRow.Cells[6].Value.ToString().Replace(".", ","), 0, 0, id_current_arrival, string.Empty, valid.mysqlDatetimeFormat(dteUp), isperiscope, dteConf, dteExp);
-                btnSavedUp.Enabled = true; //activation du btn Enregistrer
+                btnSaved.Enabled = true; //activation du btn Enregistrer
             }
             catch (Exception)
             {
                 Services.MsgFRM msg = new Services.MsgFRM();
                 msg.getAttention("Erreur, veillez à selectionner un produit ?");
 
-                btnSavedUp.Enabled = false; //desactivation du btn Enregistrer
+                btnSaved.Enabled = false; //desactivation du btn Enregistrer
             }
         }
         private void PasserAuPanierArrMultiple()
@@ -1032,20 +1002,20 @@ namespace FinanceManager.Views
 
         private void txtRechercheGeneral_Click(object sender, EventArgs e)
         {
-            if (txtResearchUp.Text == "Taper ici le text à rechercher")
+            if (txtResearch.Text == "Taper ici le text à rechercher")
             {
-                txtResearchUp.Text = string.Empty;
+                txtResearch.Text = string.Empty;
             }
         }
 
         private void txtRechercheGeneralRArr_TextChanged(object sender, EventArgs e)
         {
-            if (txtResearchUp.Text != "Taper ici le text à rechercher")
+            if (txtResearch.Text != "Taper ici le text à rechercher")
             {
-                if (txtResearchUp.Text.Contains("/"))
+                if (txtResearch.Text.Contains("/"))
                 {
                     //pour faciliter on crée des variables
-                    var val = txtResearchUp.Text;
+                    var val = txtResearch.Text;
                     //separtion de val text et entier
                     var valSeparer = val.Split('/');
                     //stockage de valeur separer
@@ -1056,7 +1026,7 @@ namespace FinanceManager.Views
                 }
                 else
                 {
-                    searchPro(txtResearchUp.Text, id_current_arrival);
+                    searchPro(txtResearch.Text, id_current_arrival);
                 }
             }
         }
@@ -1150,14 +1120,14 @@ namespace FinanceManager.Views
             dgvDataProUp.Enabled = true;
             dgvDataOperUp.Rows.Clear();
 
-            btnSavedUp.Enabled = true;
+            btnSaved.Enabled = true;
             btnDeleteAdd.Enabled = false;
             btnToModifyAdd.Enabled = false;
         }
 
         private void txtRecherche_TextChanged(object sender, EventArgs e)
         {
-            if (txtResearchUp.Text != "Taper ici le text à rechercher")
+            if (txtResearch.Text != "Taper ici le text à rechercher")
             {
                 search(txtResearchAdd.Text.Replace("'", "''"));
             }
@@ -1271,6 +1241,11 @@ namespace FinanceManager.Views
             {
                 msg.getError(obj.message["message"]);
             }
+        }
+
+        private void picResearchUp_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void btnDeleteAllUp_Click(object sender, EventArgs e)

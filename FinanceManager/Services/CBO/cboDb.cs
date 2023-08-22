@@ -12,7 +12,7 @@ namespace FinanceManager.Services.CBO
     {
         public ComboBox cbo;
 
-        public ComboBox cboMember()
+        public ComboBox cboTrimestry()
         {
             Apps.Schema schema = new Apps.Schema();
             Dictionary<string, string> fields = new Dictionary<string, string>
