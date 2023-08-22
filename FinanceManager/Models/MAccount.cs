@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using FinanceManager.Views;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -168,7 +169,7 @@ namespace FinanceManager.Models
                 if (await Apps.Query.Open())
                 {
                     Apps.Schema schema = new Apps.Schema();
-                    Apps.Query.getData($"select * from {schema.table["tb_account"]} where {schema.tb_account["fk_trimestry"]} = '{param}' order by {schema.tb_account["id"]} DESC;");
+                    Apps.Query.getData($"select student.student_id, student.names, student.kind, student.level, trimestry.wording, account.fk_trimestry, account.account_id from account inner join student on student.student_id = account.fk_student inner join trimestry on trimestry.trimestry_id = account.fk_trimestry where account.fk_trimestry = '{param}' order by {schema.tb_account["id"]} DESC;");
                     callback = new Dictionary<string, string> {
                         { "type", "success" }, { "message", "Collecte des données sans soucies" }
                     };
