@@ -117,7 +117,7 @@ namespace FinanceManager.Views.Payment
 
                 while (dr.Read())
                 {
-                    dgvData.Rows.Add(dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString());
+                    dgvData.Rows.Add(dr[0].ToString(), dr[2].ToString(), dr[1].ToString(), dr[3].ToString(), dr[4].ToString());
                 }
                 Apps.Query.DR.Close();
             }
@@ -234,8 +234,6 @@ namespace FinanceManager.Views.Payment
 
         private void btnSaved_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(mt_total.ToString());
-            MessageBox.Show(totDGV().ToString());
             if (mt_total >= totDGV() + double.Parse(txtMontant.Text.Replace(",", ".")))
             {
                 save();
@@ -259,7 +257,7 @@ namespace FinanceManager.Views.Payment
 
         private void frmAddPayment_Load(object sender, EventArgs e)
         {
-
+            loard(fk_account);
         }
 
         private void btnToModify_Click(object sender, EventArgs e)
