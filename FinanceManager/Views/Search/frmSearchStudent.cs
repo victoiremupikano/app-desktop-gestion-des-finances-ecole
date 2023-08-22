@@ -110,7 +110,7 @@ namespace FinanceManager.Views.Search
             nbrDgv();
         }
 
-        private void dgvData_DoubleClick_1(object sender, EventArgs e)
+        private void dgvData_DoubleClick(object sender, EventArgs e)
         {
             if (dgvData.Rows.Count > 0 && dgvData.SelectedRows.Count > 0)
             {
@@ -118,12 +118,7 @@ namespace FinanceManager.Views.Search
             }
         }
 
-        private void dgvData_SelectionChanged_1(object sender, EventArgs e)
-        {
-            recup();
-        }
-
-        private void dgvData_Click(object sender, EventArgs e)
+        private void dgvData_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             recup();
         }

@@ -40,9 +40,6 @@
             this.lblNomArr = new System.Windows.Forms.Label();
             this.txtResearch = new System.Windows.Forms.TextBox();
             this.gpVisualisationlistCliSC = new System.Windows.Forms.GroupBox();
-            this.txtNbrArr = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnCharger = new System.Windows.Forms.Button();
             this.dgvData = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -54,6 +51,9 @@
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtNbrArr = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnCharger = new System.Windows.Forms.Button();
             this.gpVisualisationlistCliSC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             this.SuspendLayout();
@@ -99,47 +99,6 @@
             this.gpVisualisationlistCliSC.Size = new System.Drawing.Size(514, 516);
             this.gpVisualisationlistCliSC.TabIndex = 271;
             this.gpVisualisationlistCliSC.TabStop = false;
-            // 
-            // txtNbrArr
-            // 
-            this.txtNbrArr.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.txtNbrArr.BackColor = System.Drawing.SystemColors.Control;
-            this.txtNbrArr.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNbrArr.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNbrArr.Location = new System.Drawing.Point(274, 619);
-            this.txtNbrArr.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtNbrArr.Name = "txtNbrArr";
-            this.txtNbrArr.Size = new System.Drawing.Size(251, 20);
-            this.txtNbrArr.TabIndex = 276;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(123, 618);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(145, 21);
-            this.label1.TabIndex = 277;
-            this.label1.Text = "Chargement de :";
-            // 
-            // btnCharger
-            // 
-            this.btnCharger.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnCharger.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnCharger.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCharger.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCharger.ForeColor = System.Drawing.Color.Black;
-            this.btnCharger.Image = global::FinanceManager.Properties.Resources.Download_16x16;
-            this.btnCharger.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCharger.Location = new System.Drawing.Point(29, 614);
-            this.btnCharger.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnCharger.Name = "btnCharger";
-            this.btnCharger.Size = new System.Drawing.Size(88, 32);
-            this.btnCharger.TabIndex = 278;
-            this.btnCharger.Text = "    Charger";
-            this.btnCharger.UseVisualStyleBackColor = false;
-            this.btnCharger.Click += new System.EventHandler(this.btnCharger_Click);
             // 
             // dgvData
             // 
@@ -203,6 +162,8 @@
             this.dgvData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvData.Size = new System.Drawing.Size(508, 488);
             this.dgvData.TabIndex = 14;
+            this.dgvData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellClick);
+            this.dgvData.DoubleClick += new System.EventHandler(this.dgvData_DoubleClick);
             // 
             // Column1
             // 
@@ -289,6 +250,47 @@
             this.Column11.HeaderText = "Niveau";
             this.Column11.Name = "Column11";
             this.Column11.ReadOnly = true;
+            // 
+            // txtNbrArr
+            // 
+            this.txtNbrArr.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtNbrArr.BackColor = System.Drawing.SystemColors.Control;
+            this.txtNbrArr.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNbrArr.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNbrArr.Location = new System.Drawing.Point(274, 619);
+            this.txtNbrArr.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.txtNbrArr.Name = "txtNbrArr";
+            this.txtNbrArr.Size = new System.Drawing.Size(251, 20);
+            this.txtNbrArr.TabIndex = 276;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(123, 618);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(145, 21);
+            this.label1.TabIndex = 277;
+            this.label1.Text = "Chargement de :";
+            // 
+            // btnCharger
+            // 
+            this.btnCharger.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnCharger.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnCharger.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCharger.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCharger.ForeColor = System.Drawing.Color.Black;
+            this.btnCharger.Image = global::FinanceManager.Properties.Resources.Download_16x16;
+            this.btnCharger.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCharger.Location = new System.Drawing.Point(29, 614);
+            this.btnCharger.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnCharger.Name = "btnCharger";
+            this.btnCharger.Size = new System.Drawing.Size(88, 32);
+            this.btnCharger.TabIndex = 278;
+            this.btnCharger.Text = "    Charger";
+            this.btnCharger.UseVisualStyleBackColor = false;
+            this.btnCharger.Click += new System.EventHandler(this.btnCharger_Click);
             // 
             // frmSearchStudent
             // 
