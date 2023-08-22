@@ -100,6 +100,12 @@
     <Compile Include="SettingsApp\frmSettings.designer.cs">
       <DependentUpon>frmSettings.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\frmAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\frmAccount.designer.cs">
+      <DependentUpon>frmAccount.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\frmStudent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -145,6 +151,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SettingsApp\frmSettings.resx">
       <DependentUpon>frmSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\frmAccount.resx">
+      <DependentUpon>frmAccount.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\frmStudent.resx">
       <DependentUpon>frmStudent.cs</DependentUpon>
