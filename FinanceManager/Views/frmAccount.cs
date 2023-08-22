@@ -57,7 +57,7 @@ namespace FinanceManager.Views
             //Remplir
             if (obj.getVal(Services.Session.UserSession["id"], "Arrivages", "Remplir") == false)
             {
-                tabControlArr.TabPages.Remove(tabPageRemplirArr);
+                tabControlArr.TabPages.Remove(tabPage1);
             }
         }
 
