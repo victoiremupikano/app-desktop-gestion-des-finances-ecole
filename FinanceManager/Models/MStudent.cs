@@ -199,14 +199,14 @@ namespace FinanceManager.Models
                     };
             }
         }
-        public async void getNotInAccount()
+        public async void getNotInAccount(string fk_trimestry)
         {
             try
             {
                 if (await Apps.Query.Open())
                 {
                     Apps.Schema schema = new Apps.Schema();
-                    Apps.Query.getData($"select * from {schema.table["tb_student"]} where student.student_id not in (select account.fk_student from account where account.fk_year = '{Services.Session.ExerciselSession["id"]}') order by {schema.tb_student["id"]} DESC;");
+                    Apps.Query.getData($"select * from {schema.table["tb_student"]} where student.student_id not in (select account.fk_student from account where account.fk_trimestry = '{fk_trimestry} and account.fk_year = '{Services.Session.ExerciselSession["id"]}') order by {schema.tb_student["id"]} DESC;");
                     callback = new Dictionary<string, string> {
                         { "type", "success" }, { "message", "Collecte des données sans soucies" }
                     };
