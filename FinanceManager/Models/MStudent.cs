@@ -199,5 +199,32 @@ namespace FinanceManager.Models
                     };
             }
         }
+        public async void getNotInAccount()
+        {
+            try
+            {
+                if (await Apps.Query.Open())
+                {
+                    Apps.Schema schema = new Apps.Schema();
+                    Apps.Query.getData($"select * from {schema.table["tb_student"]} where student.student_id not in (select account.fk_student from account where account.fk_year = '{Services.Session.ExerciselSession["id"]}') order by {schema.tb_student["id"]} DESC;");
+                    callback = new Dictionary<string, string> {
+                        { "type", "success" }, { "message", "Collecte des données sans soucies" }
+                    };
+                }
+                else
+                {
+                    callback = new Dictionary<string, string> {
+                        { "type", "connection" }, { "message", "Impossible d'acceder à la base de données; vérifier votre connexion" }
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                callback = new Dictionary<string, string> {
+                        { "type", "failure" }, { "message", "Chargement echouer " + ex.Message}
+                    };
+            }
+        }
+
     }
 }
