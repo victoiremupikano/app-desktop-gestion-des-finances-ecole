@@ -195,7 +195,7 @@ namespace FinanceManager.Models
                 if (await Apps.Query.Open())
                 {
                     Apps.Schema schema = new Apps.Schema();
-                    Apps.Query.getData($"select student.student_id, student.names, student.kind, student.level, trimestry.wording, trimestry.mt_to_pay, ifnull((select sum(ifnull(payment.mt_payed, 0)) from payment where payment.fk_account = tf.account_id),0) as mt_payed, (trimestry.mt_to_pay - (ifnull((select sum(ifnull(payment.mt_payed, 0)) from payment where payment.fk_account = tf.account_id),0))) as solde, tf.fk_trimestry, tf.account_id from account as tf inner join student on student.student_id = tf.fk_student inner join trimestry on trimestry.trimestry_id = tf.fk_trimestry where student.student_id = '{param}' and {schema.tb_account["fk_year"]} = '{Services.Session.ExerciselSession["id"]}';");
+                    Apps.Query.getData($"select student.student_id, student.names, student.kind, student.level, trimestry.wording, trimestry.mt_to_pay, ifnull((select sum(ifnull(payment.mt_payed, 0)) from payment where payment.fk_account = tf.account_id),0) as mt_payed, (trimestry.mt_to_pay - (ifnull((select sum(ifnull(payment.mt_payed, 0)) from payment where payment.fk_account = tf.account_id),0))) as solde, tf.fk_trimestry, tf.account_id from account as tf inner join student on student.student_id = tf.fk_student inner join trimestry on trimestry.trimestry_id = tf.fk_trimestry where student.student_id = '{param}' and tf.fk_year = '{Services.Session.ExerciselSession["id"]}';");
                     callback = new Dictionary<string, string> {
                         { "type", "success" }, { "message", "Collecte des données sans soucies" }
                     };

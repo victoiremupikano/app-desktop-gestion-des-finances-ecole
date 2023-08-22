@@ -136,6 +136,12 @@
     <Compile Include="Views\Payment\frmAccountByStudent.designer.cs">
       <DependentUpon>frmAccountByStudent.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Payment\frmAddPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Payment\frmAddPayment.designer.cs">
+      <DependentUpon>frmAddPayment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Search\frmSearchStudent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,6 +187,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Payment\frmAccountByStudent.resx">
       <DependentUpon>frmAccountByStudent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Payment\frmAddPayment.resx">
+      <DependentUpon>frmAddPayment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Search\frmSearchStudent.resx">
       <DependentUpon>frmSearchStudent.cs</DependentUpon>
