@@ -59,6 +59,19 @@ namespace FinanceManager.Views.Payment
             this.Close();
         }
 
+        private void dgvDataOperUp_DoubleClick(object sender, EventArgs e)
+        {
+            if (dgvDataOperUp.Rows.Count > 0 && dgvDataOperUp.SelectedRows.Count > 0)
+            {
+                frmAddPayment frm = new frmAddPayment();
+                frm.fk_account = dgvDataOperUp.CurrentRow.Cells[9].Value.ToString();
+                frm.mt_total = double.Parse(dgvDataOperUp.CurrentRow.Cells[6].Value.ToString().Replace(",", "."));
+                frm.Text = "Detail / " + dgvDataOperUp.CurrentRow.Cells[2].Value.ToString();
+
+                frm.ShowDialog();
+            }
+        }
+
         private void loardStatusAccountByStudent(string param)
         {
             Models.MAccount obj = new Models.MAccount();
