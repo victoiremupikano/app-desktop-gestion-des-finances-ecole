@@ -63,12 +63,25 @@ namespace FinanceManager.Views.Payment
         {
             if (dgvDataOperUp.Rows.Count > 0 && dgvDataOperUp.SelectedRows.Count > 0)
             {
-                frmAddPayment frm = new frmAddPayment();
-                frm.fk_account = dgvDataOperUp.CurrentRow.Cells[9].Value.ToString();
-                frm.mt_total = double.Parse(dgvDataOperUp.CurrentRow.Cells[5].Value.ToString().Replace(",", "."));
-                frm.Text = "Detail / " + dgvDataOperUp.CurrentRow.Cells[2].Value.ToString();
+                using (Views.Payment.frmAddPayment frm = new frmAddPayment())
+                {
+                    frm.fk_account = dgvDataOperUp.CurrentRow.Cells[9].Value.ToString();
+                    frm.mt_total = double.Parse(dgvDataOperUp.CurrentRow.Cells[5].Value.ToString().Replace(",", "."));
+                    frm.Text = "Detail / " + dgvDataOperUp.CurrentRow.Cells[2].Value.ToString();
 
-                frm.ShowDialog();
+                    if (frm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    {
+                        if (string.IsNullOrEmpty(fk_student))
+                        {
+                            Services.MsgFRM msg = new Services.MsgFRM();
+                            msg.getAttention("Attention, veillez séléctionner l'item (ou l'apprenant) !");
+                        }
+                        else
+                        {
+                            loardStatusAccountByStudent(fk_student);
+                        }
+                    }
+                }
             }
         }
 

@@ -260,6 +260,11 @@ namespace FinanceManager.Views.Payment
             loard(fk_account);
         }
 
+        private void frmAddPayment_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult = System.Windows.Forms.DialogResult.OK;
+        }
+
         private void btnToModify_Click(object sender, EventArgs e)
         {
             double nbrToModify = double.Parse(dgvData.CurrentRow.Cells[1].Value.ToString().Replace(",", "."));

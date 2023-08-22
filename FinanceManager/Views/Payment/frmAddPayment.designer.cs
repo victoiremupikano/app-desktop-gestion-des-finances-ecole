@@ -331,6 +331,7 @@
             this.Name = "frmAddPayment";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Detail de l\'opération";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmAddPayment_FormClosing);
             this.Load += new System.EventHandler(this.frmAddPayment_Load);
             this.gpTransactAChat.ResumeLayout(false);
             this.gpTransactAChat.PerformLayout();
