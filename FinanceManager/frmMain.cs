@@ -209,6 +209,32 @@ namespace FinanceManager
             }
             catch { }
         }
+        private void call_account()
+        {
+            try
+            {
+                if (!Views.frmAccount.IsFormOpen(typeof(Views.frmAccount)))
+                {
+                    //code pur repatrier la frm concerner dans le pnlCentral
+                    callMultiForm(new Views.frmAccount());
+                    //...
+                    //.. votre code concernant le boutton
+
+                    //rendre les panels de bas invisible au clic btn sauf pour le btn
+
+                    this.pnlBasPayment.Visible = false;
+                    this.pnlBasAccount.Visible = true;
+                    this.pnlBasRapports.Visible = false;
+                    this.pnlBasStudent.Visible = false;
+                }
+                else
+                {
+                    //on ne fait rien
+                }
+            }
+            catch { }
+        }
+
 
         #endregion
 
@@ -235,7 +261,7 @@ namespace FinanceManager
 
         private void moleculesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            call_account();
         }
 
         private void facturesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -256,7 +282,7 @@ namespace FinanceManager
 
         private void btnAccount_Click(object sender, EventArgs e)
         {
-
+            call_account();
         }
 
         private void btnPayment_Click(object sender, EventArgs e)
