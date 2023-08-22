@@ -70,11 +70,9 @@
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtResearch = new System.Windows.Forms.TextBox();
             this.picResearch = new System.Windows.Forms.PictureBox();
-            this.btnDeleteAll = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
             this.btnCut = new System.Windows.Forms.Button();
             this.btnLoard = new System.Windows.Forms.Button();
-            this.btnToModify = new System.Windows.Forms.Button();
             this.txtNbrEwmplir = new System.Windows.Forms.TextBox();
             this.gpPanier = new System.Windows.Forms.GroupBox();
             this.dgvDataOperUp = new System.Windows.Forms.DataGridView();
@@ -92,6 +90,7 @@
             this.pictureBoxClose = new System.Windows.Forms.PictureBox();
             this.pictureBoxMinimize = new System.Windows.Forms.PictureBox();
             this.picSearchTLP = new System.Windows.Forms.PictureBox();
+            this.notifyIconArrivage = new System.Windows.Forms.NotifyIcon(this.components);
             this.contextMenuStripRemplissage.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.gpGeneralFluxStock.SuspendLayout();
@@ -122,7 +121,6 @@
             this.txtRechercheArriv.Name = "txtRechercheArriv";
             this.txtRechercheArriv.Size = new System.Drawing.Size(381, 17);
             this.txtRechercheArriv.TabIndex = 141;
-            this.txtRechercheArriv.Click += new System.EventHandler(this.txtRechercheArriv_Click);
             // 
             // contextMenuStripRemplissage
             // 
@@ -181,6 +179,7 @@
             this.cboTrimestry.Name = "cboTrimestry";
             this.cboTrimestry.Size = new System.Drawing.Size(204, 29);
             this.cboTrimestry.TabIndex = 311;
+            this.cboTrimestry.SelectedIndexChanged += new System.EventHandler(this.cboTrimestry_SelectedIndexChanged);
             // 
             // lblTrimestry
             // 
@@ -212,11 +211,9 @@
             // 
             // splitContainerRecevoirArrivage.Panel2
             // 
-            this.splitContainerRecevoirArrivage.Panel2.Controls.Add(this.btnDeleteAll);
             this.splitContainerRecevoirArrivage.Panel2.Controls.Add(this.btnNew);
             this.splitContainerRecevoirArrivage.Panel2.Controls.Add(this.btnCut);
             this.splitContainerRecevoirArrivage.Panel2.Controls.Add(this.btnLoard);
-            this.splitContainerRecevoirArrivage.Panel2.Controls.Add(this.btnToModify);
             this.splitContainerRecevoirArrivage.Panel2.Controls.Add(this.txtNbrEwmplir);
             this.splitContainerRecevoirArrivage.Panel2.Controls.Add(this.gpPanier);
             this.splitContainerRecevoirArrivage.Panel2.Controls.Add(this.btnSaved);
@@ -441,26 +438,6 @@
             this.picResearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picResearch.TabIndex = 237;
             this.picResearch.TabStop = false;
-            this.picResearch.Click += new System.EventHandler(this.picResearchUp_Click);
-            // 
-            // btnDeleteAll
-            // 
-            this.btnDeleteAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDeleteAll.BackColor = System.Drawing.Color.White;
-            this.btnDeleteAll.BackgroundImage = global::FinanceManager.Properties.Resources.delete_forever;
-            this.btnDeleteAll.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnDeleteAll.FlatAppearance.BorderSize = 0;
-            this.btnDeleteAll.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnDeleteAll.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDeleteAll.ForeColor = System.Drawing.Color.Black;
-            this.btnDeleteAll.Location = new System.Drawing.Point(485, 222);
-            this.btnDeleteAll.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnDeleteAll.Name = "btnDeleteAll";
-            this.btnDeleteAll.Size = new System.Drawing.Size(42, 41);
-            this.btnDeleteAll.TabIndex = 350;
-            this.toolTipBtnCtrl.SetToolTip(this.btnDeleteAll, "Supprimer");
-            this.btnDeleteAll.UseVisualStyleBackColor = false;
-            this.btnDeleteAll.Click += new System.EventHandler(this.btnDeleteAllUp_Click);
             // 
             // btnNew
             // 
@@ -472,7 +449,7 @@
             this.btnNew.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnNew.ForeColor = System.Drawing.Color.Black;
             this.btnNew.Image = global::FinanceManager.Properties.Resources.icon_plus;
-            this.btnNew.Location = new System.Drawing.Point(197, 222);
+            this.btnNew.Location = new System.Drawing.Point(311, 222);
             this.btnNew.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(42, 41);
@@ -491,7 +468,7 @@
             this.btnCut.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCut.ForeColor = System.Drawing.Color.Black;
             this.btnCut.Image = global::FinanceManager.Properties.Resources.icon_close;
-            this.btnCut.Location = new System.Drawing.Point(245, 222);
+            this.btnCut.Location = new System.Drawing.Point(359, 222);
             this.btnCut.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCut.Name = "btnCut";
             this.btnCut.Size = new System.Drawing.Size(42, 41);
@@ -510,7 +487,7 @@
             this.btnLoard.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLoard.ForeColor = System.Drawing.Color.Black;
             this.btnLoard.Image = global::FinanceManager.Properties.Resources.Download_16x16;
-            this.btnLoard.Location = new System.Drawing.Point(293, 222);
+            this.btnLoard.Location = new System.Drawing.Point(407, 222);
             this.btnLoard.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnLoard.Name = "btnLoard";
             this.btnLoard.Size = new System.Drawing.Size(42, 41);
@@ -518,25 +495,6 @@
             this.toolTipBtnCtrl.SetToolTip(this.btnLoard, "Charger");
             this.btnLoard.UseVisualStyleBackColor = false;
             this.btnLoard.Click += new System.EventHandler(this.btnChargerOper_Click);
-            // 
-            // btnToModify
-            // 
-            this.btnToModify.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnToModify.BackColor = System.Drawing.Color.White;
-            this.btnToModify.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnToModify.FlatAppearance.BorderSize = 0;
-            this.btnToModify.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnToModify.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnToModify.ForeColor = System.Drawing.Color.Black;
-            this.btnToModify.Image = global::FinanceManager.Properties.Resources.Edit_16x16;
-            this.btnToModify.Location = new System.Drawing.Point(341, 222);
-            this.btnToModify.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnToModify.Name = "btnToModify";
-            this.btnToModify.Size = new System.Drawing.Size(42, 41);
-            this.btnToModify.TabIndex = 337;
-            this.toolTipBtnCtrl.SetToolTip(this.btnToModify, "Modifier");
-            this.btnToModify.UseVisualStyleBackColor = false;
-            this.btnToModify.Click += new System.EventHandler(this.btnModifierOper_Click);
             // 
             // txtNbrEwmplir
             // 
@@ -564,7 +522,7 @@
             this.gpPanier.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.gpPanier.Name = "gpPanier";
             this.gpPanier.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.gpPanier.Size = new System.Drawing.Size(555, 214);
+            this.gpPanier.Size = new System.Drawing.Size(552, 214);
             this.gpPanier.TabIndex = 252;
             this.gpPanier.TabStop = false;
             this.gpPanier.Text = "Pannier";
@@ -625,11 +583,9 @@
             dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.WindowText;
             this.dgvDataOperUp.RowsDefaultCellStyle = dataGridViewCellStyle16;
             this.dgvDataOperUp.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDataOperUp.Size = new System.Drawing.Size(549, 186);
+            this.dgvDataOperUp.Size = new System.Drawing.Size(546, 186);
             this.dgvDataOperUp.TabIndex = 16;
-            this.dgvDataOperUp.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataOper_CellClick);
             this.dgvDataOperUp.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDataOper_CellEndEdit);
-            this.dgvDataOperUp.SelectionChanged += new System.EventHandler(this.dgvDataOper_SelectionChanged);
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -704,7 +660,7 @@
             this.btnSaved.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnSaved.ForeColor = System.Drawing.Color.Black;
             this.btnSaved.Image = global::FinanceManager.Properties.Resources.Add_16x16;
-            this.btnSaved.Location = new System.Drawing.Point(389, 222);
+            this.btnSaved.Location = new System.Drawing.Point(455, 222);
             this.btnSaved.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSaved.Name = "btnSaved";
             this.btnSaved.Size = new System.Drawing.Size(42, 41);
@@ -723,7 +679,7 @@
             this.btnDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDelete.ForeColor = System.Drawing.Color.Black;
             this.btnDelete.Image = global::FinanceManager.Properties.Resources.Delete_16x16;
-            this.btnDelete.Location = new System.Drawing.Point(437, 222);
+            this.btnDelete.Location = new System.Drawing.Point(503, 222);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(42, 41);
@@ -785,6 +741,12 @@
             this.picSearchTLP.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picSearchTLP.TabIndex = 238;
             this.picSearchTLP.TabStop = false;
+            // 
+            // notifyIconArrivage
+            // 
+            this.notifyIconArrivage.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIconArrivage.Icon")));
+            this.notifyIconArrivage.Text = "Arrivage";
+            this.notifyIconArrivage.Visible = true;
             // 
             // frmAccount
             // 
@@ -849,12 +811,10 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.TabControl tabControlArr;
         private System.Windows.Forms.Button btnLoard;
-        private System.Windows.Forms.Button btnToModify;
         private System.Windows.Forms.DataGridView dgvDataOperUp;
         private System.Windows.Forms.Button btnCut;
         private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.ToolTip toolTipBtnCtrl;
-        private System.Windows.Forms.Button btnDeleteAll;
         private System.Windows.Forms.ComboBox cboTrimestry;
         private System.Windows.Forms.DataGridView dgvData;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
@@ -874,5 +834,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
+        private System.Windows.Forms.NotifyIcon notifyIconArrivage;
     }
 }
