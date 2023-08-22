@@ -14,39 +14,14 @@ namespace FinanceManager.Views.Payment
 {
     public partial class frmAddPayment : Form
     {
-        public string id, fk_box, fk_repartition;
-        public double mt_total, pourcent = 0;
+        public string id, fk_account;
+        public double mt_total = 0;
         Services.convertDate valid = new Services.convertDate();
 
         public frmAddPayment()
         {
             InitializeComponent();
         }
-
-        ///FX pour la somme des detaills deja enregistrer
-        ///
-        private double totDGV()
-        {
-            Services.DtgvServices dgv = new Services.DtgvServices();
-            return dgv.DGV_total(dgvData, 2);
-        }
-        
-        private void setEneabledBtn()
-        {
-            if (pourcent == 0)
-            {
-                btnDelete.Visible = true;
-                btnSaved.Visible = true;
-                btnToModify.Visible = true;
-            }
-            else
-            {
-                btnDelete.Visible = true;
-                btnSaved.Visible = false;
-                btnToModify.Visible = true;
-            }
-        }
-
 
         /// <summary>
         /// Controle
@@ -66,23 +41,22 @@ namespace FinanceManager.Views.Payment
                 {
                     Dictionary<string, string> fields = new Dictionary<string, string>{
                         {"id", id},
-                        {"dte", valid.mysqlDateFormat(dteOperation)},
-                        {"mt", txtMontant.Text.Replace(",", ".")},
                         {"wording", txtWording.Text},
-                        {"fk1", fk_box},
-                        {"fk2", null},
+                        {"mt_payed", txtMontant.Text.Replace(",", ".")},
+                        {"fk1", fk_account},
+                        {"fk_year", Services.Session.ExerciselSession["id"]},
                         {"fk_user", Services.Session.UserSession["id"]}
                     };
 
                     //on passe les donnees dans le controllers
-                    Controllers.CBox_detail obj = new Controllers.CBox_detail(fields);
+                    Controllers.CPayment obj = new Controllers.CPayment(fields);
                     obj.update(obj);
 
                     if (obj.message["type"] == "success")
                     {
                         msg.getInfo(obj.message["message"]);
 
-                        loard(fk_box);
+                        loard(fk_account);
                     }
                     else if (obj.message["type"] == "failure")
                     {
@@ -108,14 +82,14 @@ namespace FinanceManager.Views.Payment
                     {"id", id},
                 };
                 //on passe les donnees dans le controllers
-                Controllers.CBox_detail obj = new Controllers.CBox_detail(fields);
+                Controllers.CPayment obj = new Controllers.CPayment(fields);
                 obj.delete(obj);
 
                 if (obj.message["type"] == "success")
                 {
                     msg.getInfo(obj.message["message"]);
 
-                    loard(fk_box);
+                    loard(fk_account);
                 }
                 else if (obj.message["type"] == "failure")
                 {
@@ -133,23 +107,19 @@ namespace FinanceManager.Views.Payment
 
         private void loard(string param)
         {
-            Models.MBox_detail obj = new Models.MBox_detail();
-            obj.get(param);
+            Models.MPayment obj = new Models.MPayment();
+            obj.getByAccount(param);
             if (obj.callback["type"] == "success")
             {
                 //on vide la dgv
                 dgvData.Rows.Clear();
-                MySqlDataReader dr = Apps.QuerySP.DR;
+                MySqlDataReader dr = Apps.Query.DR;
 
                 while (dr.Read())
                 {
                     dgvData.Rows.Add(dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString());
                 }
-                Apps.QuerySP.DR.Close();
-
-                //tot des valeurs
-                Services.DtgvServices dgv = new Services.DtgvServices();
-                lblTotDgv.Text = "Total : " + dgv.DGV_total(dgvData, 2).ToString() + " U.M";
+                Apps.Query.DR.Close();
             }
             else if (obj.callback["type"] == "failure")
             {
@@ -164,8 +134,6 @@ namespace FinanceManager.Views.Payment
             btnSaved.Enabled = false;
             btnDelete.Enabled = true;
             btnToModify.Enabled = true;
-
-            btnGenerateOrSaved.Enabled = false;
         }
 
         private void save()
@@ -178,23 +146,22 @@ namespace FinanceManager.Views.Payment
             else
             {
                 Dictionary<string, string> fields = new Dictionary<string, string>{
-                        {"dte", valid.mysqlDateFormat(dteOperation)},
-                        {"mt", txtMontant.Text.Replace(",", ".")},
                         {"wording", txtWording.Text},
-                        {"fk1", fk_box},
-                        {"fk2", null},
+                        {"mt_payed", txtMontant.Text.Replace(",", ".")},
+                        {"fk1", fk_account},
+                        {"fk_year", Services.Session.ExerciselSession["id"]},
                         {"fk_user", Services.Session.UserSession["id"]}
                     };
 
                 //on passe les donnees dans le controllers
-                Controllers.CBox_detail obj = new Controllers.CBox_detail(fields);
+                Controllers.CPayment obj = new Controllers.CPayment(fields);
                 obj.add(obj);
 
                 if (obj.message["type"] == "success")
                 {
                     msg.getInfo(obj.message["message"]);
 
-                    loard(fk_box);
+                    loard(fk_account);
                 }
                 else if (obj.message["type"] == "failure")
                 {
@@ -215,55 +182,8 @@ namespace FinanceManager.Views.Payment
             if (dgvData.Rows.Count > 0 && dgvData.SelectedRows.Count > 0)
             {
                 id = dgvData.CurrentRow.Cells[0].Value.ToString();
-                dteOperation.Value = DateTime.Parse(dgvData.CurrentRow.Cells[1].Value.ToString());
-                txtMontant.Text = dgvData.CurrentRow.Cells[2].Value.ToString().Replace(".", ",");
-                txtWording.Text = dgvData.CurrentRow.Cells[3].Value.ToString();
-                fk_box = dgvData.CurrentRow.Cells[4].Value.ToString();
-            }
-        }
-
-        private void picNewRowType_Click(object sender, EventArgs e)
-        {
-            txtWording.Text = "-";
-            txtMontant.Text = "0";
-
-            btnDelete.Enabled = false;
-            btnToModify.Enabled = false;
-            btnSaved.Enabled = true;
-
-            btnGenerateOrSaved.Enabled = true;
-        }
-
-        private void btnToModify_Click(object sender, EventArgs e)
-        {
-            double nbrToModify = double.Parse(dgvData.CurrentRow.Cells[2].Value.ToString().Replace(",", "."));
-            if (mt_total + nbrToModify >= totDGV() + double.Parse(txtMontant.Text.Replace(",", ".")))
-            {
-                modify();
-            }
-            else
-            {
-                Services.MsgFRM msg = new Services.MsgFRM();
-                msg.getAttention("Attention, le montant payer ne doit pas excedé le solde à payer !");
-            }
-        }
-
-        private void btnDelete_Click(object sender, EventArgs e)
-        {
-            delete();
-        }
-
-        private void btnSaved_Click(object sender, EventArgs e)
-        {
-
-            if (mt_total >= totDGV() + double.Parse(txtMontant.Text.Replace(",", ".")))
-            {
-                save();
-            }
-            else
-            {
-                Services.MsgFRM msg = new Services.MsgFRM();
-                msg.getAttention("Attention, le montant payer ne doit pas excedé le solde à payer !");
+                txtMontant.Text = dgvData.CurrentRow.Cells[1].Value.ToString().Replace(".", ",");
+                txtWording.Text = dgvData.CurrentRow.Cells[2].Value.ToString();
             }
         }
 
@@ -294,72 +214,59 @@ namespace FinanceManager.Views.Payment
             catch { }
         }
 
-        private void frmBoxDetail_Load(object sender, EventArgs e)
+        private void btnNew_Click(object sender, EventArgs e)
         {
-            setEneabledBtn();
-            loard(fk_box);
+            txtWording.Text = "-";
+            txtMontant.Text = "0";
+
+            btnDelete.Enabled = false;
+            btnToModify.Enabled = false;
+            btnSaved.Enabled = true;
         }
 
-        /// <summary>
-        /// Dicision
-        /// </summary>
-        /// <param name="mt"></param>
-        /// <param name="fk_client"></param>
-        #region dividante pour chaque membre
-        private string getType(string param)
+        ///FX pour la somme des detaills deja enregistrer
+        ///
+        private double totDGV()
         {
-            string result = string.Empty;
-            Models.MRepartition obj = new Models.MRepartition();
-            obj.getId(param);
-            if (obj.callback["type"] == "success")
+            Services.DtgvServices dgv = new Services.DtgvServices();
+            return dgv.DGV_total(dgvData, 1);
+        }
+
+        private void btnSaved_Click(object sender, EventArgs e)
+        {
+            if (mt_total >= totDGV() + double.Parse(txtMontant.Text.Replace(",", ".")))
             {
-                MySqlDataReader dr = Apps.QuerySP.DR;
-                if (dr.Read())
-                {
-                    result = dr[1].ToString();
-                }
-                Apps.QuerySP.DR.Close();
-            }
-            else if (obj.callback["type"] == "failure")
-            {
-                Services.MsgFRM msg = new Services.MsgFRM();
-                msg.getError(obj.callback["message"]);
+                save();
             }
             else
             {
                 Services.MsgFRM msg = new Services.MsgFRM();
-                msg.getError(obj.callback["message"]);
+                msg.getAttention("Attention, le montant payer ne doit pas excedé le solde à payer !");
             }
-            return result;
         }
-        private void saveDividante(string mt, string fk_client)
+
+        private void btnLoard_Click(object sender, EventArgs e)
         {
-            Dictionary<string, string> fields = new Dictionary<string, string>{
-                        {"dte", valid.mysqlDateFormat(dteOperation)},
-                        {"mt", mt},
-                        {"wording", txtWording.Text},
-                        {"fk1", fk_box},
-                        {"fk2", fk_client},
-                        {"fk_user", Services.Session.UserSession["id"]}
-                    };
+            loard(fk_account);
+        }
 
-            //on passe les donnees dans le controllers
-            Controllers.CBox_detail obj = new Controllers.CBox_detail(fields);
-            obj.add(obj);
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            delete();
+        }
 
-            if (obj.message["type"] == "success")
-            { }
-            else if (obj.message["type"] == "failure")
+        private void btnToModify_Click(object sender, EventArgs e)
+        {
+            double nbrToModify = double.Parse(dgvData.CurrentRow.Cells[1].Value.ToString().Replace(",", "."));
+            if (mt_total + nbrToModify >= totDGV() + double.Parse(txtMontant.Text.Replace(",", ".")))
             {
-                Services.MsgFRM msg = new Services.MsgFRM();
-                msg.getError(obj.message["message"]);
+                modify();
             }
             else
             {
                 Services.MsgFRM msg = new Services.MsgFRM();
-                msg.getError(obj.message["message"]);
+                msg.getAttention("Attention, le montant payer ne doit pas excedé le solde à payer !");
             }
-        }        
-        #endregion
+        }    
     }
 }

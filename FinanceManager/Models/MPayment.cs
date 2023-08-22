@@ -161,14 +161,14 @@ namespace FinanceManager.Models
                     };
             }
         }
-        public async void get()
+        public async void getByAccount(string param)
         {
             try
             {
                 if (await Apps.Query.Open())
                 {
                     Apps.Schema schema = new Apps.Schema();
-                    Apps.Query.getData($"select * from {schema.table["tb_payment"]} order by {schema.tb_payment["id"]} DESC;");
+                    Apps.Query.getData($"select * from {schema.table["tb_payment"]} and {schema.tb_payment["fk_account"]} = '{param}' order by {schema.tb_payment["id"]} DESC;");
                     callback = new Dictionary<string, string> {
                         { "type", "success" }, { "message", "Collecte des données sans soucies" }
                     };
