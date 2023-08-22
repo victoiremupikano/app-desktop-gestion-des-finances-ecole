@@ -130,6 +130,18 @@
     <Compile Include="Views\frmUsers.designer.cs">
       <DependentUpon>frmUsers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Payment\frmAccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Payment\frmAccount.designer.cs">
+      <DependentUpon>frmAccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Search\frmSearchStudent.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Search\frmSearchStudent.designer.cs">
+      <DependentUpon>frmSearchStudent.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="frmConnecting.resx">
       <DependentUpon>frmConnecting.cs</DependentUpon>
     </EmbeddedResource>
@@ -166,6 +178,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\frmUsers.resx">
       <DependentUpon>frmUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Payment\frmAccount.resx">
+      <DependentUpon>frmAccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Search\frmSearchStudent.resx">
+      <DependentUpon>frmSearchStudent.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

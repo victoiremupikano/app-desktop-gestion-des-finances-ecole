@@ -188,7 +188,7 @@ namespace FinanceManager
         {
             try
             {
-                if (!Views.frmStudent.IsFormOpen(typeof(Views.frmStudent)))
+                if (!Views.frmSearchStudent.IsFormOpen(typeof(Views.frmSearchStudent)))
                 {
                     //code pur repatrier la frm concerner dans le pnlCentral
                     callMultiForm(new Views.frmStudent());
