@@ -234,6 +234,8 @@ namespace FinanceManager.Views.Payment
 
         private void btnSaved_Click(object sender, EventArgs e)
         {
+            MessageBox.Show(mt_total.ToString());
+            MessageBox.Show(totDGV().ToString());
             if (mt_total >= totDGV() + double.Parse(txtMontant.Text.Replace(",", ".")))
             {
                 save();
@@ -253,6 +255,11 @@ namespace FinanceManager.Views.Payment
         private void btnDelete_Click(object sender, EventArgs e)
         {
             delete();
+        }
+
+        private void frmAddPayment_Load(object sender, EventArgs e)
+        {
+
         }
 
         private void btnToModify_Click(object sender, EventArgs e)

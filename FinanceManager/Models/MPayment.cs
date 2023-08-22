@@ -22,7 +22,7 @@ namespace FinanceManager.Models
                             schema.table["tb_payment"],
                                 new MySqlParameter($"@{schema.tb_payment["wording"]}", args["wording"]),
                                 new MySqlParameter($"@{schema.tb_payment["mt_payed"]}", args["mt_payed"]),
-                                new MySqlParameter($"@{schema.tb_payment["fk1"]}", args["fk_account"]),
+                                new MySqlParameter($"@{schema.tb_payment["fk1"]}", args["fk1"]),
                                 new MySqlParameter($"@{schema.tb_payment["fk_year"]}", args["fk_year"]),
                                 new MySqlParameter($"@{schema.tb_payment["fk_user"]}", args["fk_user"])
                             ))
@@ -65,7 +65,7 @@ namespace FinanceManager.Models
                                 new MySqlParameter($"@{schema.tb_payment["id"]}", args["id"]),
                                 new MySqlParameter($"@{schema.tb_payment["wording"]}", args["wording"]),
                                 new MySqlParameter($"@{schema.tb_payment["mt_payed"]}", args["mt_payed"]),
-                                new MySqlParameter($"@{schema.tb_payment["fk1"]}", args["fk_account"]),
+                                new MySqlParameter($"@{schema.tb_payment["fk1"]}", args["fk1"]),
                                 new MySqlParameter($"@{schema.tb_payment["fk_year"]}", args["fk_year"]),
                                 new MySqlParameter($"@{schema.tb_payment["fk_user"]}", args["fk_user"])
                             ))
@@ -168,7 +168,7 @@ namespace FinanceManager.Models
                 if (await Apps.Query.Open())
                 {
                     Apps.Schema schema = new Apps.Schema();
-                    Apps.Query.getData($"select * from {schema.table["tb_payment"]} and {schema.tb_payment["fk_account"]} = '{param}' order by {schema.tb_payment["id"]} DESC;");
+                    Apps.Query.getData($"select * from payment where payment.fk_account = '{param}' order by payment.payment_id DESC;");
                     callback = new Dictionary<string, string> {
                         { "type", "success" }, { "message", "Collecte des données sans soucies" }
                     };

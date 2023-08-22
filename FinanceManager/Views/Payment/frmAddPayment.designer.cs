@@ -192,7 +192,6 @@
             this.dgvData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvData.Size = new System.Drawing.Size(853, 197);
             this.dgvData.TabIndex = 17;
-            this.dgvData.DoubleClick += new System.EventHandler(this.dgvData_DoubleClick);
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -332,6 +331,7 @@
             this.Name = "frmAddPayment";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Detail de l\'opération";
+            this.Load += new System.EventHandler(this.frmAddPayment_Load);
             this.gpTransactAChat.ResumeLayout(false);
             this.gpTransactAChat.PerformLayout();
             this.tableLayoutPanelTaux.ResumeLayout(false);

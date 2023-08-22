@@ -65,7 +65,7 @@ namespace FinanceManager.Views.Payment
             {
                 frmAddPayment frm = new frmAddPayment();
                 frm.fk_account = dgvDataOperUp.CurrentRow.Cells[9].Value.ToString();
-                frm.mt_total = double.Parse(dgvDataOperUp.CurrentRow.Cells[6].Value.ToString().Replace(",", "."));
+                frm.mt_total = double.Parse(dgvDataOperUp.CurrentRow.Cells[5].Value.ToString().Replace(",", "."));
                 frm.Text = "Detail / " + dgvDataOperUp.CurrentRow.Cells[2].Value.ToString();
 
                 frm.ShowDialog();
