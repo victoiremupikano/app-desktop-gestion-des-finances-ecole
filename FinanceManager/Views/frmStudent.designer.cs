@@ -64,7 +64,6 @@
             this.lblKind = new System.Windows.Forms.Label();
             this.txtReligin = new System.Windows.Forms.TextBox();
             this.lblReligin = new System.Windows.Forms.Label();
-            this.txtBirthday = new System.Windows.Forms.TextBox();
             this.lblBirthday = new System.Windows.Forms.Label();
             this.txtAdress = new System.Windows.Forms.TextBox();
             this.lblAdress = new System.Windows.Forms.Label();
@@ -87,6 +86,7 @@
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dteBirthday = new System.Windows.Forms.DateTimePicker();
             this.tabPageA1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picReseachAdd)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
@@ -278,6 +278,7 @@
             this.gpArrivGen.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gpArrivGen.Controls.Add(this.dteBirthday);
             this.gpArrivGen.Controls.Add(this.cboLevel);
             this.gpArrivGen.Controls.Add(this.cboKind);
             this.gpArrivGen.Controls.Add(this.lblLevel);
@@ -291,7 +292,6 @@
             this.gpArrivGen.Controls.Add(this.lblMather);
             this.gpArrivGen.Controls.Add(this.txtFather);
             this.gpArrivGen.Controls.Add(this.lblFather);
-            this.gpArrivGen.Controls.Add(this.txtBirthday);
             this.gpArrivGen.Controls.Add(this.lblBirthday);
             this.gpArrivGen.Controls.Add(this.lblKind);
             this.gpArrivGen.Controls.Add(this.txtNames);
@@ -308,7 +308,6 @@
             // 
             // txtNames
             // 
-            this.txtNames.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNames.BackColor = System.Drawing.SystemColors.Control;
             this.txtNames.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNames.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -318,11 +317,9 @@
             this.txtNames.Size = new System.Drawing.Size(364, 31);
             this.txtNames.TabIndex = 136;
             this.toolTipBtnCtrl.SetToolTip(this.txtNames, "Désignation de l\'arrivage");
-            this.txtNames.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMt_to_pay_KeyPress);
             // 
             // lblNames
             // 
-            this.lblNames.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblNames.AutoSize = true;
             this.lblNames.Location = new System.Drawing.Point(23, 36);
             this.lblNames.Name = "lblNames";
@@ -481,7 +478,6 @@
             // 
             // lblKind
             // 
-            this.lblKind.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblKind.AutoSize = true;
             this.lblKind.Location = new System.Drawing.Point(17, 75);
             this.lblKind.Name = "lblKind";
@@ -491,7 +487,6 @@
             // 
             // txtReligin
             // 
-            this.txtReligin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtReligin.BackColor = System.Drawing.SystemColors.Control;
             this.txtReligin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtReligin.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -504,7 +499,6 @@
             // 
             // lblReligin
             // 
-            this.lblReligin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblReligin.AutoSize = true;
             this.lblReligin.Location = new System.Drawing.Point(6, 153);
             this.lblReligin.Name = "lblReligin";
@@ -512,22 +506,8 @@
             this.lblReligin.TabIndex = 141;
             this.lblReligin.Text = "Réligion :";
             // 
-            // txtBirthday
-            // 
-            this.txtBirthday.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtBirthday.BackColor = System.Drawing.SystemColors.Control;
-            this.txtBirthday.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtBirthday.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBirthday.Location = new System.Drawing.Point(88, 111);
-            this.txtBirthday.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.txtBirthday.Name = "txtBirthday";
-            this.txtBirthday.Size = new System.Drawing.Size(364, 31);
-            this.txtBirthday.TabIndex = 140;
-            this.toolTipBtnCtrl.SetToolTip(this.txtBirthday, "Désignation de l\'arrivage");
-            // 
             // lblBirthday
             // 
-            this.lblBirthday.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblBirthday.AutoSize = true;
             this.lblBirthday.Location = new System.Drawing.Point(27, 114);
             this.lblBirthday.Name = "lblBirthday";
@@ -537,7 +517,8 @@
             // 
             // txtAdress
             // 
-            this.txtAdress.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtAdress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtAdress.BackColor = System.Drawing.SystemColors.Control;
             this.txtAdress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtAdress.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -550,7 +531,6 @@
             // 
             // lblAdress
             // 
-            this.lblAdress.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblAdress.AutoSize = true;
             this.lblAdress.Location = new System.Drawing.Point(521, 114);
             this.lblAdress.Name = "lblAdress";
@@ -560,7 +540,8 @@
             // 
             // txtMather
             // 
-            this.txtMather.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtMather.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMather.BackColor = System.Drawing.SystemColors.Control;
             this.txtMather.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtMather.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -573,7 +554,6 @@
             // 
             // lblMather
             // 
-            this.lblMather.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblMather.AutoSize = true;
             this.lblMather.Location = new System.Drawing.Point(458, 75);
             this.lblMather.Name = "lblMather";
@@ -583,7 +563,8 @@
             // 
             // txtFather
             // 
-            this.txtFather.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtFather.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtFather.BackColor = System.Drawing.SystemColors.Control;
             this.txtFather.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtFather.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -596,7 +577,6 @@
             // 
             // lblFather
             // 
-            this.lblFather.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblFather.AutoSize = true;
             this.lblFather.Location = new System.Drawing.Point(480, 36);
             this.lblFather.Name = "lblFather";
@@ -606,7 +586,6 @@
             // 
             // txtTel
             // 
-            this.txtTel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTel.BackColor = System.Drawing.SystemColors.Control;
             this.txtTel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTel.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -619,7 +598,6 @@
             // 
             // label7
             // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(227, 75);
             this.label7.Name = "label7";
@@ -629,7 +607,6 @@
             // 
             // lblLevel
             // 
-            this.lblLevel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblLevel.AutoSize = true;
             this.lblLevel.Location = new System.Drawing.Point(526, 149);
             this.lblLevel.Name = "lblLevel";
@@ -651,6 +628,8 @@
             // 
             // cboLevel
             // 
+            this.cboLevel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cboLevel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboLevel.FormattingEnabled = true;
             this.cboLevel.Items.AddRange(new object[] {
@@ -749,6 +728,13 @@
             this.Column11.Name = "Column11";
             this.Column11.ReadOnly = true;
             // 
+            // dteBirthday
+            // 
+            this.dteBirthday.Location = new System.Drawing.Point(90, 111);
+            this.dteBirthday.Name = "dteBirthday";
+            this.dteBirthday.Size = new System.Drawing.Size(362, 27);
+            this.dteBirthday.TabIndex = 155;
+            // 
             // frmStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -816,7 +802,6 @@
         private System.Windows.Forms.Label lblFather;
         private System.Windows.Forms.TextBox txtReligin;
         private System.Windows.Forms.Label lblReligin;
-        private System.Windows.Forms.TextBox txtBirthday;
         private System.Windows.Forms.Label lblBirthday;
         private System.Windows.Forms.Label lblKind;
         private System.Windows.Forms.Label lblLevel;
@@ -834,5 +819,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DateTimePicker dteBirthday;
     }
 }

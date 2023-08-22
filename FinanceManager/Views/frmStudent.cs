@@ -40,9 +40,6 @@ namespace FinanceManager.Views
 
         private void frmArrivage_Load(object sender, EventArgs e)
         {
-            //remplissage ethiquette
-            EthiquetteArr();
-
             btnToModify.Enabled = false;
             btnSaved.Enabled = false;
             btnDelete.Enabled = false;
@@ -59,25 +56,17 @@ namespace FinanceManager.Views
         }
 
         //
-        //Debut du code pour la trimestry .;
+        //Debut du code pour la student .;
         //
-        #region trimestry
+        #region student
 
         private void viderLesTxt()
         {
-            txtWording.Text = string.Empty;
-            txtNames.Text = "0";
-        }
-
-        //fonction nous aidant ethiquetter
-        private void EthiquetteArr()
-        {
-            txtWording.Text = "Nom du trimestre";
-            txtNames.Text = "0";
+            txtNames.Text = txtFather.Text = txtMather.Text = txtReligin.Text = txtTel.Text = string.Empty;
         }
 
         /// <summary>
-        /// Controle trimestry
+        /// Controle student
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -89,15 +78,22 @@ namespace FinanceManager.Views
                 viderLesTxt();
 
                 id = dgvData.CurrentRow.Cells[0].Value.ToString();
-                txtWording.Text = dgvData.CurrentRow.Cells[1].Value.ToString();
-                txtNames.Text = dgvData.CurrentRow.Cells[2].Value.ToString().Replace(".", ",");
+                txtNames.Text = dgvData.CurrentRow.Cells[1].Value.ToString();
+                cboKind.Text = dgvData.CurrentRow.Cells[2].Value.ToString();
+                dteBirthday.Value = DateTime.Parse(dgvData.CurrentRow.Cells[3].Value.ToString());
+                txtFather.Text = dgvData.CurrentRow.Cells[4].Value.ToString();
+                txtMather.Text = dgvData.CurrentRow.Cells[5].Value.ToString();
+                txtReligin.Text = dgvData.CurrentRow.Cells[6].Value.ToString();
+                txtAdress.Text = dgvData.CurrentRow.Cells[7].Value.ToString();
+                txtTel.Text = dgvData.CurrentRow.Cells[8].Value.ToString();
+                cboLevel.Text = dgvData.CurrentRow.Cells[9].Value.ToString();
             }
         }
 
         private void modify()
         {
             Services.MsgFRM msg = new Services.MsgFRM();
-            if (string.IsNullOrEmpty(id) || string.IsNullOrEmpty(txtNames.Text) || string.IsNullOrEmpty(txtWording.Text) || txtWording.Text == "Nom du trimestre")
+            if (string.IsNullOrEmpty(id) || string.IsNullOrEmpty(txtNames.Text) || string.IsNullOrEmpty(cboKind.Text) || string.IsNullOrEmpty(txtFather.Text) || string.IsNullOrEmpty(txtMather.Text) || string.IsNullOrEmpty(cboLevel.Text))
             {
                 msg.getAttention("Erreur, veiller remplir tous les champs ?");
             }
@@ -107,14 +103,20 @@ namespace FinanceManager.Views
                 {
                     Dictionary<string, string> fields = new Dictionary<string, string>{
                         {"id", id},
-                        {"wording", txtWording.Text},
-                        {"mt_to_pay", txtNames.Text.Replace(",", ".")},
+                        {"names", txtNames.Text},
+                        {"kind", cboKind.Text},
+                        {"birthday", valid.mysqlDateFormat(dteBirthday)},
+                        {"children_father", txtFather.Text},
+                        {"children_mather", txtMather.Text},
+                        {"religin", txtReligin.Text},
+                        {"adress", txtAdress.Text},
+                        {"tel", txtTel.Text},
                         {"fk_year", Services.Session.ExerciselSession["id"]},
                         {"fk_user", Services.Session.UserSession["id"]},
                     };
 
                     //on passe les donnees dans le controllers
-                    Controllers.CTrimestry obj = new Controllers.CTrimestry(fields);
+                    Controllers.CStudent obj = new Controllers.CStudent(fields);
                     obj.update(obj);
 
                     if (obj.message["type"] == "success")
@@ -147,7 +149,7 @@ namespace FinanceManager.Views
                     {"id", id},
                 };
                 //on passe les donnees dans le controllers
-                Controllers.CTrimestry obj = new Controllers.CTrimestry(fields);
+                Controllers.CStudent obj = new Controllers.CStudent(fields);
                 obj.delete(obj);
 
                 if (obj.message["type"] == "success")
@@ -173,21 +175,27 @@ namespace FinanceManager.Views
         private void save()
         {
             Services.MsgFRM msg = new Services.MsgFRM();
-            if (string.IsNullOrEmpty(txtWording.Text) || string.IsNullOrEmpty(txtNames.Text) || txtWording.Text == "Nom du trimestre")
+            if (string.IsNullOrEmpty(txtNames.Text) || string.IsNullOrEmpty(cboKind.Text) || string.IsNullOrEmpty(txtFather.Text) || string.IsNullOrEmpty(txtMather.Text) || string.IsNullOrEmpty(cboLevel.Text))
             {
                 msg.getAttention("Erreur, veiller remplir tous les champs ?");
             }
             else
             {
                 Dictionary<string, string> fields = new Dictionary<string, string>{
-                    {"wording", txtWording.Text},
-                    {"mt_to_pay", txtNames.Text.Replace(",", ".")},
+                    {"names", txtNames.Text},
+                    {"kind", cboKind.Text},
+                    {"birthday", valid.mysqlDateFormat(dteBirthday)},
+                    {"children_father", txtFather.Text},
+                    {"children_mather", txtMather.Text},
+                    {"religin", txtReligin.Text},
+                    {"adress", txtAdress.Text},
+                    {"tel", txtTel.Text},
                     {"fk_year", Services.Session.ExerciselSession["id"]},
                     {"fk_user", Services.Session.UserSession["id"]},
                 };
 
                 //on passe les donnees dans le controllers
-                Controllers.CTrimestry obj = new Controllers.CTrimestry(fields);
+                Controllers.CStudent obj = new Controllers.CStudent(fields);
                 obj.add(obj);
 
                 if (obj.message["type"] == "success")
@@ -212,7 +220,7 @@ namespace FinanceManager.Views
 
         private void loard()
         {
-            Models.MTrimestry obj = new Models.MTrimestry();
+            Models.MStudent obj = new Models.MStudent();
             obj.get();
             if (obj.callback["type"] == "success")
             {
@@ -222,7 +230,7 @@ namespace FinanceManager.Views
 
                 while (dr.Read())
                 {
-                    dgvData.Rows.Add(dr[0].ToString(), dr[1].ToString(), dr[2].ToString());
+                    dgvData.Rows.Add(dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), dr[7].ToString(), dr[8].ToString(), dr[9].ToString());
                 }
                 Apps.Query.DR.Close();
             }
@@ -243,7 +251,7 @@ namespace FinanceManager.Views
 
         private void search(string param)
         {
-            Models.MTrimestry obj = new Models.MTrimestry();
+            Models.MStudent obj = new Models.MStudent();
             obj.reseach(param);
             if (obj.callback["type"] == "success")
             {
@@ -253,7 +261,7 @@ namespace FinanceManager.Views
 
                 while (dr.Read())
                 {
-                    dgvData.Rows.Add(dr[0].ToString(), dr[1].ToString(), dr[2].ToString());
+                    dgvData.Rows.Add(dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString(), dr[7].ToString(), dr[8].ToString(), dr[9].ToString());
                 }
                 Apps.Query.DR.Close();
             }
@@ -271,22 +279,7 @@ namespace FinanceManager.Views
 
         #endregion
 
-        #region eventsClicktrimestry
-        private void txtdesignArriv_Click(object sender, EventArgs e)
-        {
-            if (txtWording.Text == "Nom du trimestre")
-            {
-                txtWording.Text = string.Empty;
-            }
-        }
-
-        private void txtdescription_Click(object sender, EventArgs e)
-        {
-            if (txtWording.Text == string.Empty)
-            {
-                txtWording.Text = "Nom du trimestre";
-            }
-        }
+        #region eventsClickstudent
 
         private void txtRechercheArriv_Click(object sender, EventArgs e)
         {
@@ -298,7 +291,7 @@ namespace FinanceManager.Views
 
         #endregion
 
-        #region btnCtrl trimestry
+        #region btnCtrl student
         private void btnCharger_Click(object sender, EventArgs e)
         {
             loard();
@@ -311,8 +304,8 @@ namespace FinanceManager.Views
 
         private void btnNewUser_Click(object sender, EventArgs e)
         {
-            EthiquetteArr();
-            
+            viderLesTxt();
+
             btnDelete.Enabled = false;
             btnSaved.Enabled = true;
             btnToModify.Enabled = false;
@@ -344,23 +337,6 @@ namespace FinanceManager.Views
         }
 
         #endregion
-
-        private void txtMt_to_pay_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == (char)Keys.Back || e.KeyChar == ','))
-            {
-                e.Handled = true;
-            }
-            TextBox txtDecimal = sender as TextBox;
-            try
-            {
-                if (e.KeyChar == ',' && txtDecimal.Text.Contains(","))
-                {
-                    e.Handled = true;
-                }
-            }
-            catch { }
-        }
 
         private void txtResearchAdd_TextChanged(object sender, EventArgs e)
         {
