@@ -28,6 +28,7 @@ namespace FinanceManager.Models
                                 new MySqlParameter($"@{schema.tb_student["religin"]}", args["religin"]),
                                 new MySqlParameter($"@{schema.tb_student["adress"]}", args["adress"]),
                                 new MySqlParameter($"@{schema.tb_student["tel"]}", args["tel"]),
+                                new MySqlParameter($"@{schema.tb_student["level"]}", args["level"]),
                                 new MySqlParameter($"@{schema.tb_student["fk_year"]}", args["fk_year"]),
                                 new MySqlParameter($"@{schema.tb_student["fk_user"]}", args["fk_user"])
                             ))
@@ -76,6 +77,7 @@ namespace FinanceManager.Models
                                 new MySqlParameter($"@{schema.tb_student["religin"]}", args["religin"]),
                                 new MySqlParameter($"@{schema.tb_student["adress"]}", args["adress"]),
                                 new MySqlParameter($"@{schema.tb_student["tel"]}", args["tel"]),
+                                new MySqlParameter($"@{schema.tb_student["level"]}", args["level"]),
                                 new MySqlParameter($"@{schema.tb_student["fk_year"]}", args["fk_year"]),
                                 new MySqlParameter($"@{schema.tb_student["fk_user"]}", args["fk_user"])
                             ))

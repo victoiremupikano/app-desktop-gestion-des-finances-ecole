@@ -111,6 +111,7 @@ namespace FinanceManager.Views
                         {"religin", txtReligin.Text},
                         {"adress", txtAdress.Text},
                         {"tel", txtTel.Text},
+                        {"level", cboLevel.Text},
                         {"fk_year", Services.Session.ExerciselSession["id"]},
                         {"fk_user", Services.Session.UserSession["id"]},
                     };
@@ -190,6 +191,7 @@ namespace FinanceManager.Views
                     {"religin", txtReligin.Text},
                     {"adress", txtAdress.Text},
                     {"tel", txtTel.Text},
+                    {"level", cboLevel.Text},
                     {"fk_year", Services.Session.ExerciselSession["id"]},
                     {"fk_user", Services.Session.UserSession["id"]},
                 };

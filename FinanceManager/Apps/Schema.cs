@@ -47,6 +47,7 @@ namespace FinanceManager.Apps
             { "religin", "religin" },
             { "adress", "adress" },
             { "tel", "tel" },
+            { "level", "level" },
             { "fk_year", "fk_year" },
             { "fk_user", "fk_user" },
             { "row_added","row_add"},
