@@ -115,9 +115,21 @@ namespace FinanceManager.Views.Reports
 
         private void btnLstPaymentFlux_Click(object sender, EventArgs e)
         {
-
-        }
-
-        
+            Services.MsgFRM msg = new Services.MsgFRM();
+            Models.Reports.rps obj = new Models.Reports.rps();
+            ReportDocument rps = obj.rpsView("Flux de paiement");
+            if (obj.message["type"] == "success")
+            {
+                crystalReportViewerAll.ReportSource = rps;
+            }
+            else if (obj.message["type"] == "failure")
+            {
+                msg.getError(obj.message["message"]);
+            }
+            else
+            {
+                msg.getError(obj.message["message"]);
+            }
+        }        
     }
 }
