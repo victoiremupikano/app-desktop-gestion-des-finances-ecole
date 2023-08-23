@@ -88,7 +88,25 @@ namespace FinanceManager.Views.Reports
 
         private void btnLoardRpsPay_Click(object sender, EventArgs e)
         {
+            // On passe les params
+            Models.Reports.rps.id_student = id_student;
+            Models.Reports.rps.names_student = txtNamesArrUp.Text;
 
+            Services.MsgFRM msg = new Services.MsgFRM();
+            Models.Reports.rps obj = new Models.Reports.rps();
+            ReportDocument rps = obj.rpsView("Situation par apprenant");
+            if (obj.message["type"] == "success")
+            {
+                crystalReportViewerAll.ReportSource = rps;
+            }
+            else if (obj.message["type"] == "failure")
+            {
+                msg.getError(obj.message["message"]);
+            }
+            else
+            {
+                msg.getError(obj.message["message"]);
+            }
         }
 
         private void btnLstPaiymentToDya_Click(object sender, EventArgs e)
