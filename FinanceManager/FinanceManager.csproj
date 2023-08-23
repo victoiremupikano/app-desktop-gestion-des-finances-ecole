@@ -149,10 +149,22 @@
     <Compile Include="Views\Payment\frmAddPayment.designer.cs">
       <DependentUpon>frmAddPayment.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Reports\DataSet1.Designer.cs">
+    <Compile Include="Views\Reports\DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet1.xsd</DependentUpon>
+      <DependentUpon>DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Reports\Documents\CrystalReportListStudent.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReportListStudent.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Views\Reports\Documents\CrystalReportPayment.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReportPayment.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Views\Reports\frmReport_UI.cs">
       <SubType>Form</SubType>
@@ -215,6 +227,14 @@
     <EmbeddedResource Include="Views\Payment\frmAddPayment.resx">
       <DependentUpon>frmAddPayment.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Reports\Documents\CrystalReportListStudent.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReportListStudent.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Reports\Documents\CrystalReportPayment.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReportPayment.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Reports\frmReport_UI.resx">
       <DependentUpon>frmReport_UI.cs</DependentUpon>
     </EmbeddedResource>
@@ -233,24 +253,22 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Views\Reports\DataSet1.xsc">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
+    <None Include="Views\Reports\DataSet.xsc">
+      <DependentUpon>DataSet.xsd</DependentUpon>
     </None>
-    <None Include="Views\Reports\DataSet1.xsd">
+    <None Include="Views\Reports\DataSet.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+      <LastGenOutput>DataSet.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Views\Reports\DataSet1.xss">
-      <DependentUpon>DataSet1.xsd</DependentUpon>
+    <None Include="Views\Reports\DataSet.xss">
+      <DependentUpon>DataSet.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\Reports\Documents\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\Add_16x16.png" />
   </ItemGroup>
@@ -379,6 +397,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\time.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

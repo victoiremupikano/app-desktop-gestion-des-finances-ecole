@@ -51,43 +51,23 @@ namespace FinanceManager.Models.Reports
                 {
                     InvPhisiqueAdapter = new MySqlDataAdapter(Query, Apps.Query.conn);
                     InvPhisiqueAdapter.SelectCommand.CommandTimeout = 0;
-                    Views.Reports.DataSet1 DataSet = new Views.Reports.DataSet1();
-                    InvPhisiqueAdapter.Fill(DataSet, "flux arr or es");
-                    Views.Reports.Documents.CrystalReport_flux_arr_or_es CFACTT = new Views.Reports.Documents.CrystalReport_flux_arr_or_es();
-                    CFACTT.SetDataSource(DataSet.Tables["flux arr or es"]);
-                    // entete du rapport
-                    TextObject designation = (TextObject)CFACTT.ReportDefinition.Sections["Section1"].ReportObjects["TextDesignation"];
-                    designation.Text = Services.Session.ProfileSession["names"];
-                    TextObject nrc = (TextObject)CFACTT.ReportDefinition.Sections["Section1"].ReportObjects["TextNRC"];
-                    nrc.Text = Services.Session.ProfileSession["nrc"];
-                    TextObject adress = (TextObject)CFACTT.ReportDefinition.Sections["Section1"].ReportObjects["TextAdress"];
-                    adress.Text = Services.Session.ProfileSession["adress"];
-                    TextObject tele = (TextObject)CFACTT.ReportDefinition.Sections["Section1"].ReportObjects["TextNumber"];
-                    tele.Text = Services.Session.ProfileSession["tele"];
-                    TextObject title = (TextObject)CFACTT.ReportDefinition.Sections["Section1"].ReportObjects["TextTitle"];
-                    title.Text = "RAPPORT DE STOCK POUR L' ARRIVAGE : " + names_arr.ToUpper();
-                    //On passe le document
+                    Views.Reports.DataSet DataSet = new Views.Reports.DataSet();
+                    InvPhisiqueAdapter.Fill(DataSet, "student");
+                    Views.Reports.Documents.CrystalReportListStudent CFACTT = new Views.Reports.Documents.CrystalReportListStudent();
+                    CFACTT.SetDataSource(DataSet.Tables["student"]);
                     document = CFACTT;
                 }
                 else if (byQuery == "Paiement du jour")
                 {
                     InvPhisiqueAdapter = new MySqlDataAdapter(Query, Apps.Query.conn);
                     InvPhisiqueAdapter.SelectCommand.CommandTimeout = 0;
-                    Views.Reports.DataSet1 DataSet = new Views.Reports.DataSet1();
-                    InvPhisiqueAdapter.Fill(DataSet, "subscriber or pay");
-                    Views.Reports.Documents.CrystalReport_subscriber_or_pay CFACTT = new Views.Reports.Documents.CrystalReport_subscriber_or_pay();
-                    CFACTT.SetDataSource(DataSet.Tables["subscriber or pay"]);
+                    Views.Reports.DataSet DataSet = new Views.Reports.DataSet();
+                    InvPhisiqueAdapter.Fill(DataSet, "payment");
+                    Views.Reports.Documents.CrystalReportPayment CFACTT = new Views.Reports.Documents.CrystalReportPayment();
+                    CFACTT.SetDataSource(DataSet.Tables["payment"]);
                     // entete du rapport
-                    TextObject designation = (TextObject)CFACTT.ReportDefinition.Sections["Section1"].ReportObjects["TextDesignation"];
-                    designation.Text = Services.Session.ProfileSession["names"];
-                    TextObject nrc = (TextObject)CFACTT.ReportDefinition.Sections["Section1"].ReportObjects["TextNRC"];
-                    nrc.Text = Services.Session.ProfileSession["nrc"];
-                    TextObject adress = (TextObject)CFACTT.ReportDefinition.Sections["Section1"].ReportObjects["TextAdress"];
-                    adress.Text = Services.Session.ProfileSession["adress"];
-                    TextObject tele = (TextObject)CFACTT.ReportDefinition.Sections["Section1"].ReportObjects["TextNumber"];
-                    tele.Text = Services.Session.ProfileSession["tele"];
                     TextObject title = (TextObject)CFACTT.ReportDefinition.Sections["Section1"].ReportObjects["TextTitle"];
-                    title.Text = "RAPPORT DES INSCRIPTIONS POUR L' ARRIVAGE : " + names_arr.ToUpper();
+                    title.Text = "RAPPORT DES PAIEMENT EN DATE DU : " + dte;
                     //On passe le document
                     document = CFACTT;
                 }
@@ -95,21 +75,13 @@ namespace FinanceManager.Models.Reports
                 {
                     InvPhisiqueAdapter = new MySqlDataAdapter(Query, Apps.Query.conn);
                     InvPhisiqueAdapter.SelectCommand.CommandTimeout = 0;
-                    Views.Reports.DataSet1 DataSet = new Views.Reports.DataSet1();
-                    InvPhisiqueAdapter.Fill(DataSet, "subscriber or pay");
-                    Views.Reports.Documents.CrystalReport_subscriber_or_pay CFACTT = new Views.Reports.Documents.CrystalReport_subscriber_or_pay();
-                    CFACTT.SetDataSource(DataSet.Tables["subscriber or pay"]);
+                    Views.Reports.DataSet DataSet = new Views.Reports.DataSet();
+                    InvPhisiqueAdapter.Fill(DataSet, "payment");
+                    Views.Reports.Documents.CrystalReportPayment CFACTT = new Views.Reports.Documents.CrystalReportPayment();
+                    CFACTT.SetDataSource(DataSet.Tables["payment"]);
                     // entete du rapport
-                    TextObject designation = (TextObject)CFACTT.ReportDefinition.Sections["Section1"].ReportObjects["TextDesignation"];
-                    designation.Text = Services.Session.ProfileSession["names"];
-                    TextObject nrc = (TextObject)CFACTT.ReportDefinition.Sections["Section1"].ReportObjects["TextNRC"];
-                    nrc.Text = Services.Session.ProfileSession["nrc"];
-                    TextObject adress = (TextObject)CFACTT.ReportDefinition.Sections["Section1"].ReportObjects["TextAdress"];
-                    adress.Text = Services.Session.ProfileSession["adress"];
-                    TextObject tele = (TextObject)CFACTT.ReportDefinition.Sections["Section1"].ReportObjects["TextNumber"];
-                    tele.Text = Services.Session.ProfileSession["tele"];
                     TextObject title = (TextObject)CFACTT.ReportDefinition.Sections["Section1"].ReportObjects["TextTitle"];
-                    title.Text = "RAPPORT DES INSCRIPTIONS POUR L' ARRIVAGE : " + names_arr.ToUpper() + " DU : " + dte1 + " AU : " + dte2;
+                    title.Text = "RAPPORT DES PAIEMENT POUR L'EXERCICE : " + Services.Session.ExerciselSession["dteStart"] + " - " + Services.Session.ExerciselSession["dteEnd"];
                     //On passe le document
                     document = CFACTT;
                 }
@@ -117,21 +89,13 @@ namespace FinanceManager.Models.Reports
                 {
                     InvPhisiqueAdapter = new MySqlDataAdapter(Query, Apps.Query.conn);
                     InvPhisiqueAdapter.SelectCommand.CommandTimeout = 0;
-                    Views.Reports.DataSet1 DataSet = new Views.Reports.DataSet1();
-                    InvPhisiqueAdapter.Fill(DataSet, "product");
-                    Views.Reports.Documents.CrystalReport_product CFACTT = new Views.Reports.Documents.CrystalReport_product();
-                    CFACTT.SetDataSource(DataSet.Tables["product"]);
+                    Views.Reports.DataSet DataSet = new Views.Reports.DataSet();
+                    InvPhisiqueAdapter.Fill(DataSet, "payment");
+                    Views.Reports.Documents.CrystalReportPayment CFACTT = new Views.Reports.Documents.CrystalReportPayment();
+                    CFACTT.SetDataSource(DataSet.Tables["payment"]);
                     // entete du rapport
-                    TextObject designation = (TextObject)CFACTT.ReportDefinition.Sections["Section1"].ReportObjects["TextDesignation"];
-                    designation.Text = Services.Session.ProfileSession["names"];
-                    TextObject nrc = (TextObject)CFACTT.ReportDefinition.Sections["Section1"].ReportObjects["TextNRC"];
-                    nrc.Text = Services.Session.ProfileSession["nrc"];
-                    TextObject adress = (TextObject)CFACTT.ReportDefinition.Sections["Section1"].ReportObjects["TextAdress"];
-                    adress.Text = Services.Session.ProfileSession["adress"];
-                    TextObject tele = (TextObject)CFACTT.ReportDefinition.Sections["Section1"].ReportObjects["TextNumber"];
-                    tele.Text = Services.Session.ProfileSession["tele"];
                     TextObject title = (TextObject)CFACTT.ReportDefinition.Sections["Section1"].ReportObjects["TextTitle"];
-                    title.Text = "LISTE DES PRODUITS";
+                    title.Text = "RAPPORT DES PAIEMENT POUR L'EXERCICE : " + Services.Session.ExerciselSession["dteStart"] + " - " + Services.Session.ExerciselSession["dteEnd"] + " DE L'ZPPRENANT : " + names_student.ToUpper();
                     //On passe le document
                     document = CFACTT;
                 }
