@@ -44,8 +44,8 @@ namespace FinanceManager
         private void frmConnecting_Load(object sender, EventArgs e)
         {
             //default
-            txtUserName.Text = "dev";
-            txtPassword.Text = "developper";
+            //txtUserName.Text = "dev";
+            //txtPassword.Text = "developper";
         }
 
 
