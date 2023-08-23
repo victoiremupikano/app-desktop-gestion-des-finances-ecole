@@ -51,7 +51,7 @@ namespace FinanceManager.Models.Reports
                 {
                     InvPhisiqueAdapter = new MySqlDataAdapter(Query, Apps.Query.conn);
                     InvPhisiqueAdapter.SelectCommand.CommandTimeout = 0;
-                    Views.Reports.DataSet DataSet = new Views.Reports.DataSet();
+                    Views.Reports.DataSet1 DataSet = new Views.Reports.DataSet1();
                     InvPhisiqueAdapter.Fill(DataSet, "student");
                     Views.Reports.Documents.CrystalReportListStudent CFACTT = new Views.Reports.Documents.CrystalReportListStudent();
                     CFACTT.SetDataSource(DataSet.Tables["student"]);
@@ -61,7 +61,7 @@ namespace FinanceManager.Models.Reports
                 {
                     InvPhisiqueAdapter = new MySqlDataAdapter(Query, Apps.Query.conn);
                     InvPhisiqueAdapter.SelectCommand.CommandTimeout = 0;
-                    Views.Reports.DataSet DataSet = new Views.Reports.DataSet();
+                    Views.Reports.DataSet1 DataSet = new Views.Reports.DataSet1();
                     InvPhisiqueAdapter.Fill(DataSet, "payment");
                     Views.Reports.Documents.CrystalReportPayment CFACTT = new Views.Reports.Documents.CrystalReportPayment();
                     CFACTT.SetDataSource(DataSet.Tables["payment"]);
@@ -75,7 +75,7 @@ namespace FinanceManager.Models.Reports
                 {
                     InvPhisiqueAdapter = new MySqlDataAdapter(Query, Apps.Query.conn);
                     InvPhisiqueAdapter.SelectCommand.CommandTimeout = 0;
-                    Views.Reports.DataSet DataSet = new Views.Reports.DataSet();
+                    Views.Reports.DataSet1 DataSet = new Views.Reports.DataSet1();
                     InvPhisiqueAdapter.Fill(DataSet, "payment");
                     Views.Reports.Documents.CrystalReportPayment CFACTT = new Views.Reports.Documents.CrystalReportPayment();
                     CFACTT.SetDataSource(DataSet.Tables["payment"]);
@@ -89,7 +89,7 @@ namespace FinanceManager.Models.Reports
                 {
                     InvPhisiqueAdapter = new MySqlDataAdapter(Query, Apps.Query.conn);
                     InvPhisiqueAdapter.SelectCommand.CommandTimeout = 0;
-                    Views.Reports.DataSet DataSet = new Views.Reports.DataSet();
+                    Views.Reports.DataSet1 DataSet = new Views.Reports.DataSet1();
                     InvPhisiqueAdapter.Fill(DataSet, "payment");
                     Views.Reports.Documents.CrystalReportPayment CFACTT = new Views.Reports.Documents.CrystalReportPayment();
                     CFACTT.SetDataSource(DataSet.Tables["payment"]);
