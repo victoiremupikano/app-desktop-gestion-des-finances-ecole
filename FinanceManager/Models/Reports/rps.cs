@@ -95,7 +95,7 @@ namespace FinanceManager.Models.Reports
                     CFACTT.SetDataSource(DataSet.Tables["payment"]);
                     // entete du rapport
                     TextObject title = (TextObject)CFACTT.ReportDefinition.Sections["Section1"].ReportObjects["TextTitle"];
-                    title.Text = "RAPPORT DES PAIEMENT POUR L'EXERCICE : " + Services.Session.ExerciselSession["dteStart"] + " - " + Services.Session.ExerciselSession["dteEnd"] + " DE L'ZPPRENANT : " + names_student.ToUpper();
+                    title.Text = "RAPPORT DES PAIEMENT POUR L'EXERCICE : " + Services.Session.ExerciselSession["dteStart"] + " - " + Services.Session.ExerciselSession["dteEnd"] + " DE L'APPRENANT : " + names_student.ToUpper();
                     //On passe le document
                     document = CFACTT;
                 }

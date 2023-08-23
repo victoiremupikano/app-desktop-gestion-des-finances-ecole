@@ -52,7 +52,7 @@ namespace FinanceManager.Views.Reports
         {
             Services.MsgFRM msg = new Services.MsgFRM();
             Models.Reports.rps obj = new Models.Reports.rps();
-            ReportDocument rps = obj.rpsView("Lite des apprenants");
+            ReportDocument rps = obj.rpsView("Liste apprenants");
             if (obj.message["type"] == "success")
             {
                 crystalReportViewerAll.ReportSource = rps;

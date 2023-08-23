@@ -147,7 +147,6 @@
             // 
             // btnLstPaiymentToDya
             // 
-            this.btnLstPaiymentToDya.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLstPaiymentToDya.BackColor = System.Drawing.Color.White;
             this.btnLstPaiymentToDya.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnLstPaiymentToDya.FlatAppearance.BorderSize = 0;
@@ -167,7 +166,6 @@
             // 
             // btnLstPaymentFlux
             // 
-            this.btnLstPaymentFlux.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLstPaymentFlux.BackColor = System.Drawing.Color.White;
             this.btnLstPaymentFlux.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnLstPaymentFlux.FlatAppearance.BorderSize = 0;
@@ -187,7 +185,6 @@
             // 
             // btnLstStudent
             // 
-            this.btnLstStudent.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLstStudent.BackColor = System.Drawing.Color.White;
             this.btnLstStudent.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnLstStudent.FlatAppearance.BorderSize = 0;
