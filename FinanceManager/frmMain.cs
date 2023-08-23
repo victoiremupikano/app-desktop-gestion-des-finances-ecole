@@ -184,6 +184,31 @@ namespace FinanceManager
             }
             catch { }
         }
+        private void call_reports()
+        {
+            try
+            {
+                if (!Views.Reports.frmReport_UI.IsFormOpen(typeof(Views.Reports.frmReport_UI)))
+                {
+                    //code pur repatrier la frm concerner dans le pnlCentral
+                    callMultiForm(new Views.Reports.frmReport_UI());
+                    //...
+                    //.. votre code concernant le boutton
+
+                    //rendre les panels de bas invisible au clic btn sauf pour le btn
+
+                    this.pnlBasPayment.Visible = false;
+                    this.pnlBasAccount.Visible = false;
+                    this.pnlBasRapports.Visible = true;
+                    this.pnlBasStudent.Visible = false;
+                }
+                else
+                {
+                    //on ne fait rien
+                }
+            }
+            catch { }
+        }
         private void call_student()
         {
             try
@@ -297,7 +322,7 @@ namespace FinanceManager
 
         private void rapportsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            call_reports();
         }
         #endregion
         #region btn
@@ -318,7 +343,7 @@ namespace FinanceManager
 
         private void btnRapport_Click(object sender, EventArgs e)
         {
-
+            call_reports();
         }
         #endregion
     }
